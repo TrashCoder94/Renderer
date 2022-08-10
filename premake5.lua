@@ -45,6 +45,7 @@ group "Dependencies"
 group ""
 
 group "RendererLibrary"
+	include "BuildMachineTest"
 	include "Renderer"
 	include "Sandbox"
 group ""

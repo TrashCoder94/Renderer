@@ -4,6 +4,9 @@
     <Filter Include="..">
       <UniqueIdentifier>{61705900-4DFC-870B-B6AA-880BA255880B}</UniqueIdentifier>
     </Filter>
+    <Filter Include="..\BuildMachineTest">
+      <UniqueIdentifier>{1572F3AC-81D3-D0BA-0A41-176D76A1077A}</UniqueIdentifier>
+    </Filter>
     <Filter Include="..\Renderer">
       <UniqueIdentifier>{27B18312-9366-FC07-1C5B-F6DE880FF30B}</UniqueIdentifier>
     </Filter>
@@ -21,6 +24,9 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\BuildMachineTest\premake5.lua">
+      <Filter>..\BuildMachineTest</Filter>
+    </None>
     <None Include="..\..\Renderer\ThirdParty\GLFW\premake5.lua">
       <Filter>..\Renderer\ThirdParty\GLFW</Filter>
     </None>

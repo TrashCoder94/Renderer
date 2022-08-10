@@ -15,10 +15,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{F4C124E3-60A1-A37E-69B9-2E55D5170AE0}</ProjectGuid>
+    <ProjectGuid>{6A14F4B1-560D-1304-7F3F-F8886B97F20F}</ProjectGuid>
     <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>Sandbox</RootNamespace>
+    <RootNamespace>BuildMachineTest</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -55,23 +55,23 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>..\Binaries\Debug-windows-x86_64\Sandbox\</OutDir>
-    <IntDir>..\Intermediate\Debug-windows-x86_64\Sandbox\</IntDir>
-    <TargetName>Sandbox</TargetName>
+    <OutDir>..\Binaries\Debug-windows-x86_64\BuildMachineTest\</OutDir>
+    <IntDir>..\Intermediate\Debug-windows-x86_64\BuildMachineTest\</IntDir>
+    <TargetName>BuildMachineTest</TargetName>
     <TargetExt>.exe</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>..\Binaries\Release-windows-x86_64\Sandbox\</OutDir>
-    <IntDir>..\Intermediate\Release-windows-x86_64\Sandbox\</IntDir>
-    <TargetName>Sandbox</TargetName>
+    <OutDir>..\Binaries\Release-windows-x86_64\BuildMachineTest\</OutDir>
+    <IntDir>..\Intermediate\Release-windows-x86_64\BuildMachineTest\</IntDir>
+    <TargetName>BuildMachineTest</TargetName>
     <TargetExt>.exe</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Distribution|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>..\Binaries\Distribution-windows-x86_64\Sandbox\</OutDir>
-    <IntDir>..\Intermediate\Distribution-windows-x86_64\Sandbox\</IntDir>
-    <TargetName>Sandbox</TargetName>
+    <OutDir>..\Binaries\Distribution-windows-x86_64\BuildMachineTest\</OutDir>
+    <IntDir>..\Intermediate\Distribution-windows-x86_64\BuildMachineTest\</IntDir>
+    <TargetName>BuildMachineTest</TargetName>
     <TargetExt>.exe</TargetExt>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -92,6 +92,10 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalOptions>-IGNORE:4006 %(AdditionalOptions)</AdditionalOptions>
     </Link>
+    <PostBuildEvent>
+      <Command>IF EXIST $(SolutionDir)Renderer\ThirdParty\OpenGL\ (xcopy /Q /E /Y /I $(SolutionDir)Renderer\ThirdParty\OpenGL ..\Binaries\Debug-windows-x86_64\BuildMachineTest &gt; nul) ELSE (xcopy /Q /Y /I $(SolutionDir)Renderer\ThirdParty\OpenGL ..\Binaries\Debug-windows-x86_64\BuildMachineTest &gt; nul)</Command>
+      <Message>Copying OpenGL dll for Build Machine!</Message>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -114,6 +118,10 @@
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalOptions>-IGNORE:4006 %(AdditionalOptions)</AdditionalOptions>
     </Link>
+    <PostBuildEvent>
+      <Command>IF EXIST $(SolutionDir)Renderer\ThirdParty\OpenGL\ (xcopy /Q /E /Y /I $(SolutionDir)Renderer\ThirdParty\OpenGL ..\Binaries\Release-windows-x86_64\BuildMachineTest &gt; nul) ELSE (xcopy /Q /Y /I $(SolutionDir)Renderer\ThirdParty\OpenGL ..\Binaries\Release-windows-x86_64\BuildMachineTest &gt; nul)</Command>
+      <Message>Copying OpenGL dll for Build Machine!</Message>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Distribution|x64'">
     <ClCompile>
@@ -136,6 +144,10 @@
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalOptions>-IGNORE:4006 %(AdditionalOptions)</AdditionalOptions>
     </Link>
+    <PostBuildEvent>
+      <Command>IF EXIST $(SolutionDir)Renderer\ThirdParty\OpenGL\ (xcopy /Q /E /Y /I $(SolutionDir)Renderer\ThirdParty\OpenGL ..\Binaries\Distribution-windows-x86_64\BuildMachineTest &gt; nul) ELSE (xcopy /Q /Y /I $(SolutionDir)Renderer\ThirdParty\OpenGL ..\Binaries\Distribution-windows-x86_64\BuildMachineTest &gt; nul)</Command>
+      <Message>Copying OpenGL dll for Build Machine!</Message>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Source\ExampleDefines.h" />

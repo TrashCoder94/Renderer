@@ -19,8 +19,8 @@ int main(int argc, char** argv)
 #endif
 
     // Create the window
-    constexpr int width = 800;
-    constexpr int height = 600;
+    constexpr int width{ 800 };
+    constexpr int height{ 600 };
     GLFWwindow* window = glfwCreateWindow(width, height, "LearnOpenGL", NULL, NULL);
     if (window == NULL)
     {
@@ -43,6 +43,9 @@ int main(int argc, char** argv)
     // Callback to handle windows being resized
     glfwSetFramebufferSizeCallback(window, OnWindowResized);
 
+    constexpr float buildMachineTimedTest{ 5.0f }; // How long in seconds until the window should automatically close.
+    float currentTime = 0.0f;
+
     // Render loop
     // TODO: Make this multithreaded?
     float lastTime = (float)glfwGetTime();
@@ -51,6 +54,13 @@ int main(int argc, char** argv)
         const float time{ (float)glfwGetTime() };
         const float deltaTime{ time - lastTime };
         lastTime = time;
+
+        currentTime += deltaTime;
+        if (currentTime >= buildMachineTimedTest)
+        {
+            std::cout << buildMachineTimedTest << " seconds have passed, terminating executable now!" << std::endl;
+            break;
+        }
 
         glfwSwapBuffers(window);
         glfwPollEvents();
