@@ -40,30 +40,30 @@ jobs:
           path: |
             Binaries/**
           
-#  # Linux - Build
-#  Linux:
-#    # The type of runner that the job will run on
-#    runs-on: ubuntu-latest
-#
-#    # Steps represent a sequence of tasks that will be executed as part of the job
-#    steps:
-#      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-#      - name: Checkout Repository
-#        uses: actions/checkout@v2
-#        
-#      - name: Build
-#        working-directory: ${{env.GITHUB_WORKSPACE}}
-#        run: |
-#          chmod +x Scripts/BuildMachine-Linux-Build.sh
-#          Scripts/BuildMachine-Linux-Build.sh
-#        
-#      - name: Archive Linux Artifacts
-#        uses: actions/upload-artifact@v2
-#        with:
-#          name: Linux-Binaries
-#          path: |
-#            Binaries/**
-#       
+  # Linux - Build
+  Linux:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+        
+      - name: Build
+        working-directory: ${{env.GITHUB_WORKSPACE}}
+        run: |
+          chmod +x Scripts/BuildMachine/BuildMachine-Linux-Build.sh
+          Scripts/BuildMachine/BuildMachine-Linux-Build.sh
+        
+      - name: Archive Linux Artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: Linux-Binaries
+          path: |
+            Binaries/**
+       
 #  # Mac - Build
 #  Mac:
 #    # The type of runner that the job will run on
@@ -78,8 +78,8 @@ jobs:
 #      - name: Build
 #        working-directory: ${{env.GITHUB_WORKSPACE}}
 #        run: |
-#          chmod +x Scripts/BuildMachine-Mac-Build.sh
-#          Scripts/BuildMachine-Mac-Build.sh
+#          chmod +x Scripts/BuildMachine/BuildMachine-Mac-Build.sh
+#          Scripts/BuildMachine/BuildMachine-Mac-Build.sh
 #
 #      - name: Archive Mac Artifacts
 #        uses: actions/upload-artifact@v2
