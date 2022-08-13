@@ -2,9 +2,7 @@
 
 set -e
 
-cd Renderer/ThirdParty/GLFW
-sudo apt-get build-dep glfw
-cd ../../../
+sudo apt install xorg-dev
 
 echo "Generating Project with Premake!"
 chmod +x ThirdParty/premake/Binaries/premake5
