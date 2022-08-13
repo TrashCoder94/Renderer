@@ -4,13 +4,21 @@
 
 #include "ExampleDefines.h"
 
+void GLFWErrorCallback(int error, const char* description);
 void OnWindowResized(GLFWwindow* window, int width, int height);
 
 int main(int argc, char** argv)
 {
 #if OPENGL_WINDOW
+    glfwSetErrorCallback(GLFWErrorCallback);
+
     // Initialise GLFW
-    glfwInit();
+    if (!glfwInit())
+    {
+        // Initialization failed
+        std::cout << "ERROR: GLFW init failed" << std::endl;
+        return EXIT_FAILURE;
+    }
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 5);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
@@ -71,6 +79,11 @@ int main(int argc, char** argv)
 #endif
 
 	return 0;
+}
+
+void GLFWErrorCallback(int error, const char* description)
+{
+    fprintf(stderr, "Error: %s\n", description);
 }
 
 void OnWindowResized(GLFWwindow* window, int width, int height)
