@@ -4,7 +4,7 @@
 
 #include "ExampleDefines.h"
 
-void GLFWErrorCallback(int error, const char* description);
+static void GLFWErrorCallback(int error, const char* description);
 void OnWindowResized(GLFWwindow* window, int width, int height);
 
 int main(int argc, char** argv)
@@ -81,7 +81,7 @@ int main(int argc, char** argv)
 	return 0;
 }
 
-void GLFWErrorCallback(int error, const char* description)
+static void GLFWErrorCallback(int error, const char* description)
 {
     fprintf(stderr, "Error: %s\n", description);
 }
