@@ -51,6 +51,11 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
         
+      # Needed for GLFW to compile correctly on Linux systems
+      - name: Install Dependencies
+        run: |
+            sudo apt install xorg-dev
+        
       - name: Build
         working-directory: ${{env.GITHUB_WORKSPACE}}
         run: |
