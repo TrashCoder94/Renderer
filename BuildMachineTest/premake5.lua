@@ -35,8 +35,7 @@ project "BuildMachineTest"
 	postbuildmessage "Copying any dependencies for Build Machine!"
 	postbuildcommands
 	{
-		"{COPY} %{wks.location}Renderer/ThirdParty/OpenGL %{cfg.targetdir}",
-		"{COPY} %{wks.location}Binaries/" .. outputdir .. "/Renderer/ %{cfg.targetdir}"
+		"{COPY} %{wks.location}Renderer/ThirdParty/OpenGL %{cfg.targetdir}"
 	}
 	
 	filter "system:windows"
@@ -48,7 +47,7 @@ project "BuildMachineTest"
 
 	filter "system:linux"
 		systemversion "latest"
-		links{ "libRenderer.a" }
+		links{ "Renderer.a" }
 		
 	filter "configurations:Debug"
 		defines "DEBUG"
