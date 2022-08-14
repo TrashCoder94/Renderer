@@ -56,19 +56,19 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>..\Binaries\Debug-windows-x86_64\Renderer\</OutDir>
     <IntDir>..\Intermediate\Debug-windows-x86_64\Renderer\</IntDir>
-    <TargetName>Renderer_Debug</TargetName>
+    <TargetName>Renderer</TargetName>
     <TargetExt>.lib</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>..\Binaries\Release-windows-x86_64\Renderer\</OutDir>
     <IntDir>..\Intermediate\Release-windows-x86_64\Renderer\</IntDir>
-    <TargetName>Renderer_Release</TargetName>
+    <TargetName>Renderer</TargetName>
     <TargetExt>.lib</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Distribution|x64'">
     <OutDir>..\Binaries\Distribution-windows-x86_64\Renderer\</OutDir>
     <IntDir>..\Intermediate\Distribution-windows-x86_64\Renderer\</IntDir>
-    <TargetName>Renderer_Distribution</TargetName>
+    <TargetName>Renderer</TargetName>
     <TargetExt>.lib</TargetExt>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">

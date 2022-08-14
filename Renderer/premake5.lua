@@ -66,21 +66,18 @@ project "Renderer"
 		
 	-- Debug configuration, turn debug symbols on
 	filter "configurations:Debug"
-		targetname "Renderer_Debug"
 		defines "DEBUG"
 		runtime "Debug"
 		symbols "on"
 		
 	-- Release configuration, optimizations turned on
 	filter "configurations:Release"
-		targetname "Renderer_Release"
 		defines "RELEASE"
 		runtime "Release"
 		optimize "on"
 		
 	-- Distribution configuration, optimizations turned on
 	filter "configurations:Distribution"
-		targetname "Renderer_Distribution"
 		defines "DISTRIBUTION"
 		runtime "Release"
 		optimize "on"
