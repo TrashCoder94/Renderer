@@ -62,7 +62,7 @@ project "Renderer"
 	filter "system:linux"
 		systemversion "latest"
 		defines { "PLATFORM_LINUX" }
-		postbuildcommands { "ls -R %{wks.location}/Binaries/" }
+		postbuildcommands { "ls -R %{wks.location}/Binaries/", "ls -R %{wks.location}/Renderer/ThirdParty/GLFW/Binaries/", "ls -R %{wks.location}/Renderer/ThirdParty/Glad/Binaries/" }
 		
 	-- Debug configuration, turn debug symbols on
 	filter "configurations:Debug"
