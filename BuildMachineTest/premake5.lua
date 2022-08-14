@@ -40,7 +40,7 @@ project "BuildMachineTest"
 
 	filter "system:linux"
 		systemversion "latest"
-		links { "GLFW", "Glad" }
+		-- links { "GLFW", "Glad" }
 		
 	filter "configurations:Debug"
 		defines "DEBUG"

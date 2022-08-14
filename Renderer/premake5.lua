@@ -39,10 +39,7 @@ project "Renderer"
 	links
 	{
 		"GLFW",
-		"Glad",
-		"opengl32.lib",
-		"GLFW.lib",
-		"Glad.lib"
+		"Glad"
 	}
 
 	-- Additional library directories
@@ -56,15 +53,16 @@ project "Renderer"
 	filter "system:windows"
 		systemversion "latest"
 		defines	{ "PLATFORM_WINDOWS" }
+		links { "opengl32.lib", "GLFW.lib", "Glad.lib" }
 		
 	filter "system:macosx"
 		systemversion "latest"
 		defines { "PLATFORM_MAC" }
-
+		
 	filter "system:linux"
 		systemversion "latest"
 		defines { "PLATFORM_LINUX" }
-
+		
 	-- Debug configuration, turn debug symbols on
 	filter "configurations:Debug"
 		targetname "Renderer_Debug"
