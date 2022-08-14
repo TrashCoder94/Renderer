@@ -47,7 +47,7 @@ project "BuildMachineTest"
 
 	filter "system:linux"
 		systemversion "latest"
-		links{ "libRenderer.a" }
+		links{ "%{wks.location}/Binaries/" .. outputdir .. "/Renderer/libRenderer.a" }
 		
 	filter "configurations:Debug"
 		defines "DEBUG"
