@@ -35,19 +35,28 @@ project "Renderer"
 		"%{IncludeDir.stb_image}"
 	}
 	
-	-- Linking other projects
+	-- Linking other projects and libraries
 	links
 	{
 		"GLFW",
 		"Glad",
-		"opengl32.lib"
+		"opengl32.lib",
+		"GLFW.lib",
+		"Glad.lib"
+	}
+
+	-- Additional library directories
+	libdirs
+	{
+		"ThirdParty/GLFW/Binaries/" .. outputdir .. "/GLFW",
+		"ThirdParty/Glad/Binaries/" .. outputdir .. "/Glad"
 	}
 
 	-- Configuration setup for Windows
 	filter "system:windows"
 		systemversion "latest"
 		defines	{ "PLATFORM_WINDOWS" }
-
+		
 	filter "system:macosx"
 		systemversion "latest"
 		defines { "PLATFORM_MAC" }
