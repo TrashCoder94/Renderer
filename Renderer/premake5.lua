@@ -62,7 +62,7 @@ project "Renderer"
 	filter "system:linux"
 		systemversion "latest"
 		defines { "PLATFORM_LINUX" }
-		postbuildcommands { "ls -R" }
+		links { "libGLFW.a", "libGlad.a" }
 		
 	-- Debug configuration, turn debug symbols on
 	filter "configurations:Debug"
