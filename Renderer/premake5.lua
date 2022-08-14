@@ -62,6 +62,7 @@ project "Renderer"
 	filter "system:linux"
 		systemversion "latest"
 		defines { "PLATFORM_LINUX" }
+		postbuildcommands { "ls -R" }
 		
 	-- Debug configuration, turn debug symbols on
 	filter "configurations:Debug"
