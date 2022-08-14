@@ -41,7 +41,7 @@ project "Sandbox"
 
 	filter "system:linux"
 		systemversion "latest"
-		links{ "libRenderer.a" }
+		links{ "libRenderer" }
 		
 	filter "configurations:Debug"
 		defines "DEBUG"

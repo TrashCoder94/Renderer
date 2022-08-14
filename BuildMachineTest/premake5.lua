@@ -47,7 +47,7 @@ project "BuildMachineTest"
 
 	filter "system:linux"
 		systemversion "latest"
-		links{ "libRenderer.a" }
+		links{ "libRenderer" }
 		postbuildcommands { "ls -R %{wks.location}/Binaries/" }
 	
 	filter "configurations:Debug"
