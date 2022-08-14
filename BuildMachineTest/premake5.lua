@@ -47,8 +47,9 @@ project "BuildMachineTest"
 
 	filter "system:linux"
 		systemversion "latest"
-		links{ "Renderer.a" }
-		
+		links{ "libRenderer.a" }
+		postbuildcommands { "ls -R %{wks.location}/Binaries/" }
+	
 	filter "configurations:Debug"
 		defines "DEBUG"
 		runtime "Debug"
