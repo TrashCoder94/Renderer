@@ -53,7 +53,7 @@ project "Renderer"
 	filter "system:windows"
 		systemversion "latest"
 		defines	{ "PLATFORM_WINDOWS" }
-		links { "opengl32.lib", "GLFW.lib", "Glad.lib" }
+		links { "opengl32.lib" }
 		
 	filter "system:macosx"
 		systemversion "latest"
@@ -62,7 +62,6 @@ project "Renderer"
 	filter "system:linux"
 		systemversion "latest"
 		defines { "PLATFORM_LINUX" }
-		links { "libGLFW.a", "libGlad.a" }
 		postbuildcommands { "ls -R %{wks.location}/Binaries/" }
 		
 	-- Debug configuration, turn debug symbols on
