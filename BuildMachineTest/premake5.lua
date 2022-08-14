@@ -40,14 +40,12 @@ project "BuildMachineTest"
 	
 	filter "system:windows"
 		systemversion "latest"
-		links{ "Renderer.lib" }
 		
 	filter "system:macosx"
 		systemversion "latest"
 
 	filter "system:linux"
 		systemversion "latest"
-		links{ "libRenderer" }
 		postbuildcommands { "ls -R %{wks.location}/Binaries/" }
 	
 	filter "configurations:Debug"

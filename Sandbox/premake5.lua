@@ -34,14 +34,12 @@ project "Sandbox"
 	
 	filter "system:windows"
 		systemversion "latest"
-		links{ "Renderer.lib" }
 		
 	filter "system:macosx"
 		systemversion "latest"
 
 	filter "system:linux"
 		systemversion "latest"
-		links{ "libRenderer" }
 		
 	filter "configurations:Debug"
 		defines "DEBUG"
