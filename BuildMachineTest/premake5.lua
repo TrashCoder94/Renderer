@@ -9,8 +9,6 @@ project "BuildMachineTest"
 
 	links
 	{
-		"GLFW",
-		"Glad",
 		"Renderer"
 	}
 
@@ -28,13 +26,6 @@ project "BuildMachineTest"
 		"%{IncludeDir.stb_image}"
 	}
 	
-	-- Additional library directories
-	libdirs
-	{
-		"ThirdParty/GLFW/Binaries/" .. outputdir .. "/GLFW",
-		"ThirdParty/Glad/Binaries/" .. outputdir .. "/Glad"
-	}
-	
 	postbuildmessage "Copying OpenGL dll for Build Machine!"
 	postbuildcommands
 	{
@@ -49,6 +40,7 @@ project "BuildMachineTest"
 
 	filter "system:linux"
 		systemversion "latest"
+		-- links { "GLFW", "Glad" }
 		
 	filter "configurations:Debug"
 		defines "DEBUG"
