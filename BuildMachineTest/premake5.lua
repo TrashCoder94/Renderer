@@ -9,7 +9,9 @@ project "BuildMachineTest"
 
 	links
 	{
-		"Renderer"
+		"Renderer",
+		"GLFW",
+		"Glad"	
 	}
 
 	files
