@@ -242,6 +242,17 @@ endif()
 #--------------------------------------------------------------------
 # Export GLFW library dependencies
 #--------------------------------------------------------------------
+if (UNIX)
+	list(APPEND glfw_PKG_DEPS "X11")
+	list(APPEND glfw_PKG_DEPS "Xrandr")
+	list(APPEND glfw_PKG_DEPS "Xinerama")
+	list(APPEND glfw_PKG_DEPS "Xxf86vm")
+	list(APPEND glfw_PKG_DEPS "Xcursor")
+	list(APPEND glfw_PKG_DEPS "GL")
+	list(APPEND glfw_PKG_DEPS "dl")
+	list(APPEND glfw_PKG_DEPS "pthread")
+endif()
+
 foreach(arg ${glfw_PKG_DEPS})
     set(GLFW_PKG_DEPS "${GLFW_PKG_DEPS} ${arg}")
 endforeach()
