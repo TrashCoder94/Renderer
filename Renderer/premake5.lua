@@ -51,10 +51,12 @@ project "Renderer"
 	filter "system:macosx"
 		systemversion "latest"
 		defines { "PLATFORM_MAC" }
+		links { "GL" }
 
 	filter "system:linux"
 		systemversion "latest"
 		defines { "PLATFORM_LINUX" }
+		links { "GL" }
 
 	-- Debug configuration, turn debug symbols on
 	filter "configurations:Debug"
