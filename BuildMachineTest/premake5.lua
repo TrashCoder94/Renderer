@@ -32,10 +32,11 @@ project "BuildMachineTest"
 		"%{wks.location}/Binaries/" .. outputdir .. "/Renderer/"
 	}
 	
-	postbuildmessage "Copying OpenGL dll for Build Machine!"
+	postbuildmessage "Copying any dependencies for Build Machine!"
 	postbuildcommands
 	{
 		"{COPY} %{wks.location}Renderer/ThirdParty/OpenGL %{cfg.targetdir}"
+		"{COPY} %{wks.location}Binaries/" .. outputdir .. "/Renderer/ %{cfg.targetdir}"
 	}
 	
 	filter "system:windows"

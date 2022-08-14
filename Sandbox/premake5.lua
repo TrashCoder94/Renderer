@@ -32,6 +32,12 @@ project "Sandbox"
 		"%{wks.location}/Binaries/" .. outputdir .. "/Renderer/"
 	}
 	
+	postbuildmessage "Copying any dependencies for Sandbox!"
+	postbuildcommands
+	{
+		"{COPY} %{wks.location}Binaries/" .. outputdir .. "/Renderer/ %{cfg.targetdir}"
+	}
+	
 	filter "system:windows"
 		systemversion "latest"
 		links{ "Renderer.lib" }
