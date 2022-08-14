@@ -35,7 +35,7 @@ project "BuildMachineTest"
 	postbuildmessage "Copying any dependencies for Build Machine!"
 	postbuildcommands
 	{
-		"{COPY} %{wks.location}Renderer/ThirdParty/OpenGL %{cfg.targetdir}"
+		"{COPY} %{wks.location}Renderer/ThirdParty/OpenGL %{cfg.targetdir}",
 		"{COPY} %{wks.location}Binaries/" .. outputdir .. "/Renderer/ %{cfg.targetdir}"
 	}
 	
