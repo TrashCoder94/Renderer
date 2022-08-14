@@ -1,5 +1,5 @@
 # Name of the stage that will appear in GitHub actions.
-name: Build
+name: Linux Build
 
 # Controls when the workflow will run.
 on:
@@ -13,33 +13,7 @@ env:
   SOLUTION_FILE_PATH: .
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel.
-jobs:
-  # Windows - Build
-  Windows:
-    # The type of runner that the job will run on
-    runs-on: windows-2019
-    continue-on-error: false
-    
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-
-      - name: Setup VS Dev Environment
-        uses: seanmiddleditch/gha-setup-vsdevenv@v4
-
-      - name: Build
-        working-directory: ${{env.GITHUB_WORKSPACE}}
-        run: Scripts/BuildMachine/BuildMachine-Windows-Build.bat
-        
-      - name: Archive Windows Artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: Windows-Binaries
-          path: |
-            Binaries/**
-          
+jobs:      
   # Linux - Build
   Linux:
     # The type of runner that the job will run on
@@ -58,7 +32,7 @@ jobs:
       - name: Install dependencies
         run: |
             sudo apt update
-            sudo apt install libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev libxext-dev
+            sudo apt install xorg-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev libxext-dev
         
       - name: Build
         working-directory: ${{env.GITHUB_WORKSPACE}}
