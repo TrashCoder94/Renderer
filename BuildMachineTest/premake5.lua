@@ -23,7 +23,8 @@ project "BuildMachineTest"
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
 		"%{IncludeDir.glm}",
-		"%{IncludeDir.stb_image}"
+		"%{IncludeDir.stb_image}",
+		"%{IncludeDir.Renderer}"
 	}
 	
 	postbuildmessage "Copying OpenGL dll for Build Machine!"
@@ -40,7 +41,6 @@ project "BuildMachineTest"
 
 	filter "system:linux"
 		systemversion "latest"
-		-- links { "GLFW", "Glad" }
 		
 	filter "configurations:Debug"
 		defines "DEBUG"

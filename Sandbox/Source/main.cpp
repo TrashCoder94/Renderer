@@ -1,69 +1,24 @@
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
-#include <iostream>
-
-#include "ExampleDefines.h"
-
-void OnWindowResized(GLFWwindow* window, int width, int height);
+#include <Shared/Renderer.h>
+#include <Shared/RendererAPI.h>
 
 int main(int argc, char** argv)
 {
-#if OPENGL_WINDOW
-    // Initialise GLFW
-    glfwInit();
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 5);
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-#if PLATFORM_MAC
-    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
-#endif
-
-    // Create the window
-    constexpr int width = 800;
-    constexpr int height = 600;
-    GLFWwindow* window = glfwCreateWindow(width, height, "LearnOpenGL", NULL, NULL);
-    if (window == NULL)
+    Renderer::Initialize();
     {
-        std::cout << "ERROR: Failed to create GLFW window" << std::endl;
-        glfwTerminate();
-        return -1;
+        if (RendererAPI* const pRendererAPI = Renderer::GetRendererAPI())
+        {
+            // Render loop
+            float lastTime{ pRendererAPI->GetTime() };
+            while (Renderer::IsRunning())
+            {
+                const float time{ pRendererAPI->GetTime() };
+                const float deltaTime{ time - lastTime };
+                lastTime = time;
+                Renderer::Update(deltaTime);
+            }
+        }
     }
-    glfwMakeContextCurrent(window);
-
-    // Initialise glad
-    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
-    {
-        std::cout << "ERROR: Failed to initialize GLAD" << std::endl;
-        return -1;
-    }
-
-    // Tell OpenGL the size of the window we want to render
-    glViewport(0, 0, width, height);
-
-    // Callback to handle windows being resized
-    glfwSetFramebufferSizeCallback(window, OnWindowResized);
-
-    // Render loop
-    // TODO: Make this multithreaded?
-    float lastTime = (float)glfwGetTime();
-    while (!glfwWindowShouldClose(window))
-    {
-        const float time{ (float)glfwGetTime() };
-        const float deltaTime{ time - lastTime };
-        lastTime = time;
-
-        glfwSwapBuffers(window);
-        glfwPollEvents();
-    }
-
-    glfwTerminate();
-
-#endif
+    Renderer::Deinitialize();
 
 	return 0;
-}
-
-void OnWindowResized(GLFWwindow* window, int width, int height)
-{
-    glViewport(0, 0, width, height);
 }

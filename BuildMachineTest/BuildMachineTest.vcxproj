@@ -79,7 +79,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Renderer\ThirdParty\GLFW\include;..\Renderer\ThirdParty\Glad\include;..\Renderer\ThirdParty\glm;..\Renderer\ThirdParty\stb_image;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Renderer\ThirdParty\GLFW\include;..\Renderer\ThirdParty\Glad\include;..\Renderer\ThirdParty\glm;..\Renderer\ThirdParty\stb_image;..\Renderer\Source;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <MinimalRebuild>false</MinimalRebuild>
@@ -102,7 +102,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Renderer\ThirdParty\GLFW\include;..\Renderer\ThirdParty\Glad\include;..\Renderer\ThirdParty\glm;..\Renderer\ThirdParty\stb_image;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Renderer\ThirdParty\GLFW\include;..\Renderer\ThirdParty\Glad\include;..\Renderer\ThirdParty\glm;..\Renderer\ThirdParty\stb_image;..\Renderer\Source;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -128,7 +128,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>DISTRIBUTION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Renderer\ThirdParty\GLFW\include;..\Renderer\ThirdParty\Glad\include;..\Renderer\ThirdParty\glm;..\Renderer\ThirdParty\stb_image;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Renderer\ThirdParty\GLFW\include;..\Renderer\ThirdParty\Glad\include;..\Renderer\ThirdParty\glm;..\Renderer\ThirdParty\stb_image;..\Renderer\Source;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -149,9 +149,6 @@
       <Message>Copying OpenGL dll for Build Machine!</Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="Source\ExampleDefines.h" />
-  </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\main.cpp" />
   </ItemGroup>

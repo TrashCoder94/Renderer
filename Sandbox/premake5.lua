@@ -23,12 +23,19 @@ project "Sandbox"
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
 		"%{IncludeDir.glm}",
-		"%{IncludeDir.stb_image}"
+		"%{IncludeDir.stb_image}",
+		"%{IncludeDir.Renderer}"
 	}
 	
 	filter "system:windows"
 		systemversion "latest"
+	
+	filter "system:macosx"
+		systemversion "latest"
 
+	filter "system:linux"
+		systemversion "latest"
+		
 	filter "configurations:Debug"
 		defines "DEBUG"
 		runtime "Debug"
