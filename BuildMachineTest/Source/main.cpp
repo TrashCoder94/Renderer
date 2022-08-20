@@ -9,6 +9,8 @@
 
 #include <DirectX12/DirectX12CommandParameters.h>
 
+HINSTANCE g_HInstance;
+
 void ParseCommandLineArguments(RendererCommandParameters* pCommandParameters)
 {
     int argc;
@@ -18,13 +20,17 @@ void ParseCommandLineArguments(RendererCommandParameters* pCommandParameters)
 
     for (size_t i = 0; i < argc; ++i)
     {
-        if (::wcscmp(argv[i], L"-w") == 0 || ::wcscmp(argv[i], L"--width") == 0)
+        if (::wcscmp(argv[i], L"-width") == 0 || ::wcscmp(argv[i], L"--width") == 0)
         {
-            pDX12CommandParameters->SetWindowWidth(::wcstol(argv[++i], nullptr, 800));
+            pDX12CommandParameters->SetWindowWidth(::wcstol(argv[++i], nullptr, 10));
         }
-        if (::wcscmp(argv[i], L"-h") == 0 || ::wcscmp(argv[i], L"--height") == 0)
+        if (::wcscmp(argv[i], L"-height") == 0 || ::wcscmp(argv[i], L"--height") == 0)
         {
-            pDX12CommandParameters->SetWindowHeight(::wcstol(argv[++i], nullptr, 600));
+            pDX12CommandParameters->SetWindowHeight(::wcstol(argv[++i], nullptr, 10));
+        }
+        if (::wcscmp(argv[i], L"-fullscreen") == 0 || ::wcscmp(argv[i], L"--fullscreen") == 0)
+        {
+            pDX12CommandParameters->SetFullscreen(true);
         }
         if (::wcscmp(argv[i], L"-warp") == 0 || ::wcscmp(argv[i], L"--warp") == 0)
         {
@@ -38,6 +44,8 @@ void ParseCommandLineArguments(RendererCommandParameters* pCommandParameters)
 
 int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
+    g_HInstance = hInstance;
+
     // Windows 10 Creators update adds Per Monitor V2 DPI awareness context.
     // Using this awareness context allows the client area of the window 
     // to achieve 100% scaling while still allowing non-client window content to 
@@ -46,7 +54,6 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 
     // Parsing command line arguments and storing them in our class for the Renderer when we initialize
     RendererCommandParameters* pCommandParameters = RendererCommandParameters::Create();
-    const wchar_t* windowClassName = L"DX12WindowClass";
     ParseCommandLineArguments(pCommandParameters);
 
     Renderer::Initialize(pCommandParameters);
@@ -55,33 +62,6 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
     }
     Renderer::Deinitialize();
 
-    //Renderer::Initialize();
-    //{
-    //    if (RendererAPI* const pRendererAPI = Renderer::GetRendererAPI())
-    //    {
-    //        constexpr float buildMachineTestTime{ 5.0f };
-    //        float currentTime{ 0.0f };
-
-    //        // Render loop
-    //        float lastTime{ pRendererAPI->GetTime() };
-    //        while (Renderer::IsRunning())
-    //        {
-    //            const float time{ pRendererAPI->GetTime() };
-    //            const float deltaTime{ time - lastTime };
-    //            lastTime = time;
-    //            Renderer::Update(deltaTime);
-
-    //            currentTime += deltaTime;
-    //            if (currentTime >= buildMachineTestTime)
-    //            {
-    //                Renderer::SetRunning(false);
-    //                break;
-    //            }
-    //        }
-    //    }
-    //}
-    //Renderer::Deinitialize();
-
-	return 0;
+    return 0;
 }
 #endif
