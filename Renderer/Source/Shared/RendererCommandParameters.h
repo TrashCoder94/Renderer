@@ -25,7 +25,7 @@ public:
 	const bool IsFullscreen();
 	void SetFullscreen(const bool fullscreen);
 
-	static RendererCommandParameters* Create(const RendererAPI::API api);
+	static std::shared_ptr<RendererCommandParameters> Create(const RendererAPI::API api);
 
 protected:
 	RendererAPI::API m_API;

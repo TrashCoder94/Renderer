@@ -10,7 +10,7 @@ public:
 	DirectX12RendererAPI();
 	~DirectX12RendererAPI();
 
-	virtual void Initialize(RendererCommandParameters* pCommandParameters) override;
+	virtual void Initialize(std::shared_ptr<RendererCommandParameters> pCommandParameters) override;
 	virtual void Render() override;
 	virtual bool Update(const float deltaTime) override;
 	virtual void Deinitialize() override;
@@ -39,7 +39,7 @@ private:
 	bool m_UseWarp; // Use WARP adapter
 	
 	MSG m_Msg;
-	DirectX12Window* m_pDX12Window;
+	std::shared_ptr<DirectX12Window> m_pDX12Window;
 
 	// DirectX 12 Objects
 	ComPtr<ID3D12Device2> m_pDevice;

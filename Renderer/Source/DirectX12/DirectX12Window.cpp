@@ -12,7 +12,7 @@ DirectX12Window::DirectX12Window(const std::string& name, const uint32_t width, 
 DirectX12Window::~DirectX12Window()
 {}
 
-void DirectX12Window::Initialize(RendererCommandParameters* pCommandParameters)
+void DirectX12Window::Initialize(std::shared_ptr<RendererCommandParameters> pCommandParameters)
 {
 	std::wstring windowNameWString = std::wstring(m_Name.begin(), m_Name.end());
 	const wchar_t* windowNameWChar = windowNameWString.c_str();
@@ -168,12 +168,10 @@ bool DirectX12Window::IsTearingSupported() const
 
 LRESULT DirectX12Window::WndProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
-	RendererAPI* pAPI = Renderer::GetRendererAPI();
-	DirectX12RendererAPI* pDX12API = static_cast<DirectX12RendererAPI*>(pAPI);
+	std::shared_ptr<DirectX12RendererAPI> pDX12API = Renderer::GetRendererAPI<DirectX12RendererAPI>();
 	assert(pDX12API && "DirectX12RendererAPI hasn't been initialized!");
 
-	Window* pWindow = Renderer::GetWindow();
-	DirectX12Window* pDX12Window = static_cast<DirectX12Window*>(pWindow);
+	std::shared_ptr<DirectX12Window> pDX12Window = Renderer::GetWindow<DirectX12Window>();
 	assert(pDX12Window && "DirectX12Window hasn't been initialized!");
 
 	if (pDX12API->IsInitialized())
@@ -182,7 +180,6 @@ LRESULT DirectX12Window::WndProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lPa
 		{
 			case WM_PAINT:
 			{
-				//Renderer::Update();
 				/*pDX12API->Update(Renderer::GetDeltaTime());
 				pDX12API->Render();*/
 				break;

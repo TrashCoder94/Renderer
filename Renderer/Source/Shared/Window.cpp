@@ -9,13 +9,13 @@ Window::Window(const std::string& name, const uint32_t width, const uint32_t hei
 	m_Fullscreen(false)
 {}
 
-Window* Window::Create(const std::string& name, const uint32_t width, const uint32_t height)
+std::shared_ptr<Window> Window::Create(const std::string& name, const uint32_t width, const uint32_t height)
 {
 	switch (RendererAPI::GetAPI())
 	{
 		case RendererAPI::API::DirectX12:
 		{
-			return new DirectX12Window(name, width, height);
+			return std::make_shared<DirectX12Window>(name, width, height);
 		}
 		default:
 		{

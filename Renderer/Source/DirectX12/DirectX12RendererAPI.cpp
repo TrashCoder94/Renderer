@@ -23,17 +23,17 @@ DirectX12RendererAPI::DirectX12RendererAPI() : RendererAPI(),
 DirectX12RendererAPI::~DirectX12RendererAPI()
 {}
 
-void DirectX12RendererAPI::Initialize(RendererCommandParameters* pCommandParameters)
+void DirectX12RendererAPI::Initialize(std::shared_ptr<RendererCommandParameters> pCommandParameters)
 {
 	// Always make sure this is called first in Initialize
 	EnableDebugLayer();
 
-	DirectX12Window* pDX12Window = Renderer::GetWindow<DirectX12Window>();
+	std::shared_ptr<DirectX12Window> pDX12Window = Renderer::GetWindow<DirectX12Window>();
 	assert(pDX12Window && "DX12 window has not been created yet!");
 	m_pDX12Window = pDX12Window;
 	m_pDX12Window->SetTearingSupported(CheckTearingSupport());
 
-	DirectX12CommandParameters* pDX12CommandParameters = static_cast<DirectX12CommandParameters*>(pCommandParameters);
+	std::shared_ptr<DirectX12CommandParameters> pDX12CommandParameters = std::static_pointer_cast<DirectX12CommandParameters>(pCommandParameters);
 	m_pDX12Window->Initialize(pCommandParameters);
 
 	m_UseWarp = pDX12CommandParameters->GetUseWarp();
@@ -104,13 +104,10 @@ void DirectX12RendererAPI::Render()
 
 		if (!m_pDX12Window)
 		{
-			if (Window* pWindow = Renderer::GetWindow())
+			if(std::shared_ptr<DirectX12Window> pDX12Window = Renderer::GetWindow<DirectX12Window>())
 			{
-				if (DirectX12Window* pDX12Window = static_cast<DirectX12Window*>(pWindow))
-				{
-					m_pDX12Window = pDX12Window;
-					m_pDX12Window->SetTearingSupported(CheckTearingSupport());
-				}
+				m_pDX12Window = pDX12Window;
+				m_pDX12Window->SetTearingSupported(CheckTearingSupport());
 			}
 		}
 		assert(m_pDX12Window && "DirectX12Window wasn't initialized!");

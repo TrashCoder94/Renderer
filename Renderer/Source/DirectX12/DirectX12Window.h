@@ -14,7 +14,7 @@ public:
 	explicit DirectX12Window(const std::string& name, const uint32_t width, const uint32_t height);
 	~DirectX12Window();
 
-	virtual void Initialize(RendererCommandParameters* pCommandParameters) override;
+	virtual void Initialize(std::shared_ptr<RendererCommandParameters> pCommandParameters) override;
 	virtual void Deinitialize() override;
 	
 	virtual void Show() override;

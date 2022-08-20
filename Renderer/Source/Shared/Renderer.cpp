@@ -1,12 +1,13 @@
 #include "rpch.h"
 #include "Renderer.h"
 
-RendererAPI* Renderer::s_pRendererAPI = nullptr;
-Window* Renderer::s_pWindow = nullptr;
+std::shared_ptr<RendererAPI> Renderer::s_pRendererAPI = nullptr;
+std::shared_ptr<Window> Renderer::s_pWindow = nullptr;
 float Renderer::s_DeltaTime = 0.016f;
+float Renderer::s_AutoQuitTime = 0.0f;
 bool Renderer::s_Running = true;
 
-void Renderer::Initialize(RendererCommandParameters* pCommandParameters)
+void Renderer::Initialize(std::shared_ptr<RendererCommandParameters> pCommandParameters)
 {
 	s_pRendererAPI = RendererAPI::Create(pCommandParameters->GetAPI());
     s_pWindow = Window::Create(pCommandParameters->GetWindowName(), pCommandParameters->GetWindowWidth(), pCommandParameters->GetWindowHeight());
@@ -17,9 +18,11 @@ void Renderer::Initialize(RendererCommandParameters* pCommandParameters)
 void Renderer::Update()
 {
     static uint64_t frameCounter = 0;
-    static float elapsedSeconds = 0.0f;
+    static float fpsSeconds = 0.0f;
     static std::chrono::high_resolution_clock clock;
     static auto previousTime = clock.now();
+    static bool checkForAutoQuitTime = s_AutoQuitTime > 0.0f;
+    static float elapsedSeconds = 0.0f;
 
     s_Running = true;
 
@@ -38,13 +41,24 @@ void Renderer::Update()
             s_pRendererAPI->Render();
 
             elapsedSeconds += s_DeltaTime;
-            if (elapsedSeconds > 1.0f)
+            fpsSeconds += s_DeltaTime;
+
+            if (checkForAutoQuitTime)
             {
-                auto fps = frameCounter / elapsedSeconds;
+                if (elapsedSeconds >= s_AutoQuitTime)
+                {
+                    std::cout << elapsedSeconds << "s have passed so Renderer will stop updating now." << std::endl;
+                    break;
+                }
+            }
+
+            if (fpsSeconds > 1.0f)
+            {
+                auto fps = frameCounter / fpsSeconds;
                 std::cout << "FPS: " << fps << std::endl;
 
                 frameCounter = 0;
-                elapsedSeconds = 0.0f;
+                fpsSeconds = 0.0f;
             }
         }
     }
@@ -54,20 +68,14 @@ void Renderer::Deinitialize()
 {
 	s_pRendererAPI->Deinitialize();
 	s_pWindow->Deinitialize();
-
-    delete s_pRendererAPI;
-    s_pRendererAPI = nullptr;
-
-    delete s_pWindow;
-    s_pWindow = nullptr;
 }
 
-RendererAPI* const Renderer::GetRendererAPI()
+std::shared_ptr<RendererAPI>& Renderer::GetRendererAPI()
 {
     return s_pRendererAPI;
 }
 
-Window* const Renderer::GetWindow()
+std::shared_ptr<Window>& Renderer::GetWindow()
 {
     return s_pWindow;
 }
@@ -85,4 +93,9 @@ const bool Renderer::IsRunning()
 const float Renderer::GetDeltaTime()
 {
     return s_DeltaTime;
+}
+
+void Renderer::SetAutoQuitTime(const float autoQuitTime)
+{
+    s_AutoQuitTime = autoQuitTime;
 }

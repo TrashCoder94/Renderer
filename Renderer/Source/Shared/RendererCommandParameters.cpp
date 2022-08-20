@@ -62,14 +62,14 @@ void RendererCommandParameters::SetFullscreen(const bool fullscreen)
 	m_Fullscreen = fullscreen;
 }
 
-RendererCommandParameters* RendererCommandParameters::Create(const RendererAPI::API api)
+std::shared_ptr<RendererCommandParameters> RendererCommandParameters::Create(const RendererAPI::API api)
 {
-	RendererCommandParameters* pCommandParameters = nullptr;
+	std::shared_ptr<RendererCommandParameters> pCommandParameters = nullptr;
 	switch (api)
 	{
 		case RendererAPI::API::DirectX12:
 		{
-			pCommandParameters = new DirectX12CommandParameters();
+			pCommandParameters = std::make_shared<DirectX12CommandParameters>();
 			pCommandParameters->SetRendererAPI(api);
 			return pCommandParameters;
 		}

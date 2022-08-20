@@ -7,33 +7,33 @@ class Window;
 class Renderer
 {
 	public:
-		static void Initialize(RendererCommandParameters* pCommandParameters);
+		static void Initialize(std::shared_ptr<RendererCommandParameters> pCommandParameters);
 		static void Update();
 		static void Deinitialize();
 
-		static RendererAPI* const GetRendererAPI();
-		static Window* const GetWindow();
+		static std::shared_ptr<RendererAPI>& GetRendererAPI();
+		static std::shared_ptr<Window>& GetWindow();
 
 		template<typename T>
-		static T* GetRendererAPI()
+		static std::shared_ptr<T> GetRendererAPI()
 		{
 			if (!std::is_base_of<RendererAPI, T>())
 			{
 				return nullptr;
 			}
 
-			return static_cast<T*>(GetRendererAPI());
+			return std::static_pointer_cast<T>(GetRendererAPI());
 		}
 
 		template<typename T>
-		static T* GetWindow()
+		static std::shared_ptr<T> GetWindow()
 		{
 			if (!std::is_base_of<Window, T>())
 			{
 				return nullptr;
 			}
 
-			return static_cast<T*>(GetWindow());
+			return std::static_pointer_cast<T>(GetWindow());
 		}
 
 		static void SetRunning(const bool running);
@@ -41,9 +41,12 @@ class Renderer
 
 		static const float GetDeltaTime();
 
+		static void SetAutoQuitTime(const float autoQuitTime);
+
 	private:
-		static RendererAPI* s_pRendererAPI;
-		static Window* s_pWindow;
+		static std::shared_ptr<RendererAPI> s_pRendererAPI;
+		static std::shared_ptr<Window> s_pWindow;
 		static float s_DeltaTime;
+		static float s_AutoQuitTime;
 		static bool s_Running;
 };

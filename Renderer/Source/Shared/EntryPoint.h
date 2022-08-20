@@ -5,13 +5,15 @@
 #if PLATFORM_WINDOWS
 #include <DirectX12/DirectX12CommandParameters.h> \
 
-#define IMPLEMENT_APPLICATION(x) \
-    HINSTANCE g_HInstance; \
-    void ParseCommandLineArguments(RendererCommandParameters* pCommandParameters) \
+#define ENTRY_POINT_GLOBAL_VARS() \
+    HINSTANCE g_HInstance;
+
+#define ENTRY_POINT_PARSECOMMANDLINEARGUMENTS_FUNCTION(x) \
+    void ParseCommandLineArguments(std::shared_ptr<RendererCommandParameters>& pCommandParameters) \
     { \
         int argc; \
         wchar_t** argv = ::CommandLineToArgvW(::GetCommandLineW(), &argc); \
-        DirectX12CommandParameters* pDX12CommandParameters = static_cast<DirectX12CommandParameters*>(pCommandParameters); \
+        std::shared_ptr<DirectX12CommandParameters> pDX12CommandParameters = std::static_pointer_cast<DirectX12CommandParameters>(pCommandParameters); \
         assert(pDX12CommandParameters && "DirectX12 command parameters has not been created yet!"); \
         pDX12CommandParameters->SetWindowName(#x); \
         for (size_t i = 0; i < argc; ++i) \
@@ -34,7 +36,9 @@
             } \
         } \
         ::LocalFree(argv); \
-    } \
+    }
+
+#define ENTRY_POINT_MAIN_FUNCTION(autoQuitTime) \
     int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) \
     { \
         g_HInstance = hInstance; \
@@ -59,8 +63,9 @@
                 } \
             } \
         } \
-        RendererCommandParameters* pCommandParameters = RendererCommandParameters::Create(selectedAPI); \
+        std::shared_ptr<RendererCommandParameters> pCommandParameters = RendererCommandParameters::Create(selectedAPI); \
         ParseCommandLineArguments(pCommandParameters); \
+        Renderer::SetAutoQuitTime(autoQuitTime); \
         Renderer::Initialize(pCommandParameters); \
         { \
             Renderer::Update(); \
@@ -68,4 +73,15 @@
         Renderer::Deinitialize(); \
         return 0; \
     }
+
+#define IMPLEMENT_APPLICATION(x) \
+    ENTRY_POINT_GLOBAL_VARS(); \
+    ENTRY_POINT_PARSECOMMANDLINEARGUMENTS_FUNCTION(x); \
+    ENTRY_POINT_MAIN_FUNCTION(0.0f);
+
+#define IMPLEMENT_AUTOQUIT_APPLICATION(x, autoQuitTime) \
+    ENTRY_POINT_GLOBAL_VARS(); \
+    ENTRY_POINT_PARSECOMMANDLINEARGUMENTS_FUNCTION(x); \
+    ENTRY_POINT_MAIN_FUNCTION(autoQuitTime);
+
 #endif

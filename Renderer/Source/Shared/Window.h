@@ -10,7 +10,7 @@ protected:
 public:
 	virtual ~Window() = default;
 
-	virtual void Initialize(RendererCommandParameters* pCommandParameters) = 0;
+	virtual void Initialize(std::shared_ptr<RendererCommandParameters> pCommandParameters) = 0;
 	virtual void Deinitialize() = 0;
 
 	virtual void Show() = 0;
@@ -29,7 +29,7 @@ public:
 	inline const uint32_t GetWidth()				{ return m_Width; }
 	inline const uint32_t GetHeight()				{ return m_Height; }
 
-	static Window* Create(const std::string& name, const uint32_t width, const uint32_t height);
+	static std::shared_ptr<Window> Create(const std::string& name, const uint32_t width, const uint32_t height);
 
 protected:
 	std::string m_Name;

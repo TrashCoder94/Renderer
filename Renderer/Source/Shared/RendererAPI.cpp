@@ -3,7 +3,7 @@
 
 RendererAPI::API RendererAPI::s_API = RendererAPI::API::DirectX12;
 
-RendererAPI* RendererAPI::Create(const RendererAPI::API api)
+std::shared_ptr<RendererAPI> RendererAPI::Create(const RendererAPI::API api)
 {
 	s_API = api;
 
@@ -11,7 +11,7 @@ RendererAPI* RendererAPI::Create(const RendererAPI::API api)
 	{
 		case RendererAPI::API::DirectX12:
 		{
-			return new DirectX12RendererAPI();
+			return std::make_shared<DirectX12RendererAPI>();
 		}
 		default:
 		{
