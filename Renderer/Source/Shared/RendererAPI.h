@@ -22,7 +22,7 @@ public:
 
 	static inline API& GetAPI() { return s_API; }
 
-	static RendererAPI* Create();
+	static RendererAPI* Create(const RendererAPI::API api);
 
 protected:
 	bool m_IsInitialized;

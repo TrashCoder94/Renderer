@@ -1,10 +1,5 @@
+#include "rpch.h"
 #include "Renderer.h"
-#include "Shared/RendererAPI.h"
-#include "Shared/RendererCommandParameters.h"
-#include "Shared/Window.h"
-
-#include <chrono>
-#include <iostream>
 
 RendererAPI* Renderer::s_pRendererAPI = nullptr;
 Window* Renderer::s_pWindow = nullptr;
@@ -13,7 +8,7 @@ bool Renderer::s_Running = true;
 
 void Renderer::Initialize(RendererCommandParameters* pCommandParameters)
 {
-	s_pRendererAPI = RendererAPI::Create();
+	s_pRendererAPI = RendererAPI::Create(pCommandParameters->GetAPI());
     s_pWindow = Window::Create("Learn DX12", pCommandParameters->GetWindowWidth(), pCommandParameters->GetWindowHeight());
 
 	s_pRendererAPI->Initialize(pCommandParameters);

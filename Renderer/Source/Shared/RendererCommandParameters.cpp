@@ -1,7 +1,5 @@
+#include "rpch.h"
 #include "Shared/RendererCommandParameters.h"
-#include "Shared/RendererAPI.h"
-#include "DirectX12/DirectX12.h"
-#include "DirectX12/DirectX12CommandParameters.h"
 
 RendererCommandParameters::RendererCommandParameters() : 
 	m_WindowWidth(800),
@@ -11,6 +9,16 @@ RendererCommandParameters::RendererCommandParameters() :
 
 RendererCommandParameters::~RendererCommandParameters()
 {}
+
+const RendererAPI::API RendererCommandParameters::GetAPI()
+{
+	return m_API;
+}
+
+void RendererCommandParameters::SetRendererAPI(const RendererAPI::API api)
+{
+	m_API = api;
+}
 
 const uint32_t RendererCommandParameters::GetWindowWidth()
 {
@@ -42,13 +50,16 @@ void RendererCommandParameters::SetFullscreen(const bool fullscreen)
 	m_Fullscreen = fullscreen;
 }
 
-RendererCommandParameters* RendererCommandParameters::Create()
+RendererCommandParameters* RendererCommandParameters::Create(const RendererAPI::API api)
 {
-	switch (RendererAPI::GetAPI())
+	RendererCommandParameters* pCommandParameters = nullptr;
+	switch (api)
 	{
 		case RendererAPI::API::DirectX12:
 		{
-			return new DirectX12CommandParameters();
+			pCommandParameters = new DirectX12CommandParameters();
+			pCommandParameters->SetRendererAPI(api);
+			return pCommandParameters;
 		}
 		case RendererAPI::API::Vulkan:
 		{
@@ -60,5 +71,5 @@ RendererCommandParameters* RendererCommandParameters::Create()
 		}
 	}
 
-	return nullptr;
+	return pCommandParameters;
 }

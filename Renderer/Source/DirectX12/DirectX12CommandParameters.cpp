@@ -1,5 +1,5 @@
+#include "rpch.h"
 #include "DirectX12CommandParameters.h"
-#include "DirectX12/DirectX12.h"
 
 DirectX12CommandParameters::DirectX12CommandParameters() : RendererCommandParameters(),
 	m_UseWarp(false)

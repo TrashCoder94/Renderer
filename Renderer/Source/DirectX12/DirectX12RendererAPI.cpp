@@ -1,8 +1,5 @@
+#include "rpch.h"
 #include "DirectX12RendererAPI.h"
-#include "DirectX12/DirectX12.h"
-#include "DirectX12/DirectX12Window.h"
-#include "Shared/Renderer.h"
-#include "DirectX12/DirectX12CommandParameters.h"
 
 DirectX12RendererAPI::DirectX12RendererAPI() : RendererAPI(),
 	m_UseWarp(false),

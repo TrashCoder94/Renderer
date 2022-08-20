@@ -36,6 +36,8 @@
     <ClInclude Include="Source\Shared\Window.h">
       <Filter>Shared</Filter>
     </ClInclude>
+    <ClInclude Include="Source\rpch.h" />
+    <ClInclude Include="Source\Shared\EntryPoint.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\DirectX12\DirectX12CommandParameters.cpp">
@@ -59,5 +61,6 @@
     <ClCompile Include="Source\Shared\Window.cpp">
       <Filter>Shared</Filter>
     </ClCompile>
+    <ClCompile Include="Source\rpch.cpp" />
   </ItemGroup>
 </Project>

@@ -1,11 +1,5 @@
+#include "rpch.h"
 #include "DirectX12Window.h"
-#include "DirectX12/DirectX12.h"
-#include "DirectX12/DirectX12RendererAPI.h"
-#include "DirectX12/DirectX12CommandParameters.h"
-#include "Shared/Renderer.h"
-#include "Shared/RendererCommandParameters.h"
-
-#include <cassert>
 
 extern HINSTANCE g_HInstance;
 

@@ -73,7 +73,8 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>rpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;PLATFORM_WINDOWS;WIN32_LEAN_AND_MEAN;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>Source;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -95,7 +96,8 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>rpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;PLATFORM_WINDOWS;WIN32_LEAN_AND_MEAN;RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>Source;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -120,7 +122,8 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Distribution|x64'">
     <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>rpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;PLATFORM_WINDOWS;WIN32_LEAN_AND_MEAN;DISTRIBUTION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>Source;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -149,10 +152,12 @@
     <ClInclude Include="Source\DirectX12\DirectX12RendererAPI.h" />
     <ClInclude Include="Source\DirectX12\DirectX12Window.h" />
     <ClInclude Include="Source\DirectX12\d3dx12.h" />
+    <ClInclude Include="Source\Shared\EntryPoint.h" />
     <ClInclude Include="Source\Shared\Renderer.h" />
     <ClInclude Include="Source\Shared\RendererAPI.h" />
     <ClInclude Include="Source\Shared\RendererCommandParameters.h" />
     <ClInclude Include="Source\Shared\Window.h" />
+    <ClInclude Include="Source\rpch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\DirectX12\DirectX12CommandParameters.cpp" />
@@ -162,6 +167,9 @@
     <ClCompile Include="Source\Shared\RendererAPI.cpp" />
     <ClCompile Include="Source\Shared\RendererCommandParameters.cpp" />
     <ClCompile Include="Source\Shared\Window.cpp" />
+    <ClCompile Include="Source\rpch.cpp">
+      <PrecompiledHeader>Create</PrecompiledHeader>
+    </ClCompile>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

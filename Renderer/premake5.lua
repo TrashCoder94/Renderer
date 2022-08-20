@@ -7,6 +7,9 @@ project "Renderer"
 	targetdir ("%{wks.location}/Binaries/" .. outputdir .. "/%{prj.name}")
 	objdir ("%{wks.location}/Intermediate/" .. outputdir .. "/%{prj.name}")
 
+	pchheader "rpch.h"
+	pchsource "Source/rpch.cpp"
+
 	files
 	{
 		"Source/**.h",

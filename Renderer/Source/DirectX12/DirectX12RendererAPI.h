@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Shared/RendererAPI.h"
-#include "DirectX12/DirectX12.h"
 
 class DirectX12Window;
 

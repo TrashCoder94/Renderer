@@ -1,11 +1,12 @@
+#include "rpch.h"
 #include "RendererAPI.h"
-#include "DirectX12/DirectX12.h"
-#include "DirectX12/DirectX12RendererAPI.h"
 
 RendererAPI::API RendererAPI::s_API = RendererAPI::API::DirectX12;
 
-RendererAPI* RendererAPI::Create()
+RendererAPI* RendererAPI::Create(const RendererAPI::API api)
 {
+	s_API = api;
+
 	switch (s_API)
 	{
 		case RendererAPI::API::DirectX12:

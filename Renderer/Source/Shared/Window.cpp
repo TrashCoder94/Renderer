@@ -1,7 +1,5 @@
+#include "rpch.h"
 #include "Window.h"
-#include "Shared/RendererAPI.h"
-#include "DirectX12/DirectX12.h"
-#include "DirectX12/DirectX12Window.h"
 
 Window::Window(const std::string& name, const uint32_t width, const uint32_t height) :
 	m_Name(name),
