@@ -44,7 +44,7 @@
         wchar_t** argv = ::CommandLineToArgvW(::GetCommandLineW(), &argc); \
         for (size_t i = 0; i < argc; ++i) \
         { \
-            if (::wcscmp(argv[i], L"-api") == 0 || ::wcscmp(argv[i], L"--api") == 0) \
+            if (::wcscmp(argv[i], L"-api") == 0 || ::wcscmp(argv[i], L"--api") == 0 || ::wcscmp(argv[i], L"-API") == 0 || ::wcscmp(argv[i], L"--API") == 0) \
             { \
                 wchar_t* apiArg = argv[++i]; \
                 if (::wcscmp(argv[i], L"DX12") == 0 || ::wcscmp(argv[i], L"DirectX12") == 0 || ::wcscmp(argv[i], L"directx12") == 0) \
@@ -54,6 +54,8 @@
                 else if (::wcscmp(argv[i], L"Vulkan") == 0 || ::wcscmp(argv[i], L"vulkan") == 0) \
                 { \
                     selectedAPI = RendererAPI::API::Vulkan; \
+                    std::cout << "Vulkan doesn't have an implementation yet!" << std::endl; \
+                    return 0; \
                 } \
             } \
         } \
