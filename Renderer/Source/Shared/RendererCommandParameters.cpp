@@ -2,8 +2,10 @@
 #include "Shared/RendererCommandParameters.h"
 
 RendererCommandParameters::RendererCommandParameters() : 
+	m_API(RendererAPI::API::DirectX12),
 	m_WindowWidth(800),
 	m_WindowHeight(600),
+	m_WindowName(),
 	m_Fullscreen(false)
 {}
 
@@ -38,6 +40,16 @@ const uint32_t RendererCommandParameters::GetWindowHeight()
 void RendererCommandParameters::SetWindowHeight(const uint32_t height)
 {
 	m_WindowHeight = height;
+}
+
+const std::string& RendererCommandParameters::GetWindowName()
+{
+	return m_WindowName;
+}
+
+void RendererCommandParameters::SetWindowName(const std::string& name)
+{
+	m_WindowName = name;
 }
 
 const bool RendererCommandParameters::IsFullscreen()

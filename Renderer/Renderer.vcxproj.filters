@@ -24,6 +24,9 @@
     <ClInclude Include="Source\DirectX12\d3dx12.h">
       <Filter>DirectX12</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Shared\EntryPoint.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
     <ClInclude Include="Source\Shared\Renderer.h">
       <Filter>Shared</Filter>
     </ClInclude>
@@ -37,7 +40,6 @@
       <Filter>Shared</Filter>
     </ClInclude>
     <ClInclude Include="Source\rpch.h" />
-    <ClInclude Include="Source\Shared\EntryPoint.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\DirectX12\DirectX12CommandParameters.cpp">

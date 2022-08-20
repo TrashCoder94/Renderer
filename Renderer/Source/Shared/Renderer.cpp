@@ -9,7 +9,7 @@ bool Renderer::s_Running = true;
 void Renderer::Initialize(RendererCommandParameters* pCommandParameters)
 {
 	s_pRendererAPI = RendererAPI::Create(pCommandParameters->GetAPI());
-    s_pWindow = Window::Create("Learn DX12", pCommandParameters->GetWindowWidth(), pCommandParameters->GetWindowHeight());
+    s_pWindow = Window::Create(pCommandParameters->GetWindowName(), pCommandParameters->GetWindowWidth(), pCommandParameters->GetWindowHeight());
 
 	s_pRendererAPI->Initialize(pCommandParameters);
 }

@@ -19,6 +19,9 @@ public:
 	const uint32_t GetWindowHeight();
 	void SetWindowHeight(const uint32_t height);
 
+	const std::string& GetWindowName();
+	void SetWindowName(const std::string& name);
+
 	const bool IsFullscreen();
 	void SetFullscreen(const bool fullscreen);
 
@@ -26,7 +29,8 @@ public:
 
 protected:
 	RendererAPI::API m_API;
-	uint32_t m_WindowWidth = 0;
-	uint32_t m_WindowHeight = 0;
-	bool m_Fullscreen = false;
+	uint32_t m_WindowWidth;
+	uint32_t m_WindowHeight;
+	std::string m_WindowName;
+	bool m_Fullscreen;
 };
