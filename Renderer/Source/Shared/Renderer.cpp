@@ -1,25 +1,58 @@
 #include "Renderer.h"
 #include "Shared/RendererAPI.h"
+#include "Shared/RendererCommandParameters.h"
 #include "Shared/Window.h"
+
+#include <chrono>
+#include <iostream>
 
 RendererAPI* Renderer::s_pRendererAPI = nullptr;
 Window* Renderer::s_pWindow = nullptr;
 float Renderer::s_DeltaTime = 0.016f;
 bool Renderer::s_Running = true;
 
-void Renderer::Initialize()
+void Renderer::Initialize(RendererCommandParameters* pCommandParameters)
 {
 	s_pRendererAPI = RendererAPI::Create();
-	s_pRendererAPI->Initialize();
+    s_pWindow = Window::Create("Learn DX12", pCommandParameters->GetWindowWidth(), pCommandParameters->GetWindowHeight());
 
-	s_pWindow = Window::Create("Learn OpenGL", 800, 600);
-	s_pWindow->Initialize();
+	s_pRendererAPI->Initialize(pCommandParameters);
 }
 
-void Renderer::Update(const float deltaTime)
+void Renderer::Update()
 {
-    s_DeltaTime = deltaTime;
-    s_Running = s_pWindow->Update(s_DeltaTime);
+    static uint64_t frameCounter = 0;
+    static float elapsedSeconds = 0.0f;
+    static std::chrono::high_resolution_clock clock;
+    static auto previousTime = clock.now();
+
+    s_Running = true;
+
+    while (s_Running)
+    {
+        frameCounter++;
+        auto currentTime = clock.now();
+        auto deltaTime = currentTime - previousTime;
+        previousTime = currentTime;
+
+        s_DeltaTime = deltaTime.count() * 1e-9f;
+        
+        if (s_pRendererAPI->IsInitialized())
+        {
+            s_Running = s_pRendererAPI->Update(s_DeltaTime);
+            s_pRendererAPI->Render();
+
+            elapsedSeconds += s_DeltaTime;
+            if (elapsedSeconds > 1.0f)
+            {
+                auto fps = frameCounter / elapsedSeconds;
+                std::cout << "FPS: " << fps << std::endl;
+
+                frameCounter = 0;
+                elapsedSeconds = 0.0f;
+            }
+        }
+    }
 }
 
 void Renderer::Deinitialize()

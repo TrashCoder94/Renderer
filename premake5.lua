@@ -21,7 +21,7 @@ workspace "Renderer"
 	{
 		"MultiProcessorCompile"
 	}
-
+	
 	linkoptions 
 	{ 
 		"-IGNORE:4006"
@@ -32,17 +32,11 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 -- Include directories
 IncludeDir = {}
-IncludeDir["GLFW"] = "%{wks.location}/Renderer/ThirdParty/GLFW/include"
-IncludeDir["Glad"] = "%{wks.location}/Renderer/ThirdParty/Glad/include"
-IncludeDir["glm"] = "%{wks.location}/Renderer/ThirdParty/glm"
-IncludeDir["stb_image"] = "%{wks.location}/Renderer/ThirdParty/stb_image"
 IncludeDir["Renderer"] = "%{wks.location}/Renderer/Source/"
 
 -- Other premakes to use
 group "Dependencies"
 	include "ThirdParty/premake"
-	include "Renderer/ThirdParty/GLFW"
-	include "Renderer/ThirdParty/Glad"
 group ""
 
 group "RendererLibrary"

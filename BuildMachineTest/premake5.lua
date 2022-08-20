@@ -3,15 +3,14 @@ project "BuildMachineTest"
 	language "C++"
 	cppdialect "C++17"
 	staticruntime "on"
-
+	entrypoint "WinMainCRTStartup"
+	
 	targetdir ("%{wks.location}/Binaries/" .. outputdir .. "/%{prj.name}")
 	objdir ("%{wks.location}/Intermediate/" .. outputdir .. "/%{prj.name}")
 
 	links
 	{
-		"Renderer",
-		"GLFW",
-		"Glad"	
+		"Renderer"
 	}
 
 	files
@@ -22,10 +21,6 @@ project "BuildMachineTest"
 	
 	includedirs
 	{
-		"%{IncludeDir.GLFW}",
-		"%{IncludeDir.Glad}",
-		"%{IncludeDir.glm}",
-		"%{IncludeDir.stb_image}",
 		"%{IncludeDir.Renderer}"
 	}
 	
@@ -34,22 +29,31 @@ project "BuildMachineTest"
 		"%{wks.location}/Binaries/" .. outputdir .. "/Renderer/"
 	}
 	
-	postbuildmessage "Copying any dependencies for Build Machine!"
-	postbuildcommands
+	newoption 
 	{
-		"{COPY} %{wks.location}Renderer/ThirdParty/OpenGL %{cfg.targetdir}"
+		trigger     = "--width",
+		value 		= 800,
+		description = "Sets window width"
+	}
+	
+	newoption 
+	{
+		trigger     = "--height",
+		value 		= 600,
+		description = "Sets window height"
+	}
+	
+	newoption 
+	{
+		trigger     = "--warp",
+		value 		= false,
+		description = "Whether DX12 should use warp for older graphics cards"
 	}
 	
 	filter "system:windows"
 		systemversion "latest"
+		defines	{ "PLATFORM_WINDOWS" }
 		
-	filter "system:macosx"
-		systemversion "latest"
-
-	filter "system:linux"
-		systemversion "latest"
-		postbuildcommands { "ls -R %{wks.location}/Binaries/" }
-	
 	filter "configurations:Debug"
 		defines "DEBUG"
 		runtime "Debug"

@@ -10,15 +10,6 @@
     <Filter Include="..\Renderer">
       <UniqueIdentifier>{27B18312-9366-FC07-1C5B-F6DE880FF30B}</UniqueIdentifier>
     </Filter>
-    <Filter Include="..\Renderer\ThirdParty">
-      <UniqueIdentifier>{8123E392-6D1D-0CE5-568A-A2F542237251}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="..\Renderer\ThirdParty\GLFW">
-      <UniqueIdentifier>{6037B5AD-CC44-E393-552B-DF7EC137AF4A}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="..\Renderer\ThirdParty\Glad">
-      <UniqueIdentifier>{08C3B5AD-74D0-E393-FDB6-DF7E69C3AF4A}</UniqueIdentifier>
-    </Filter>
     <Filter Include="..\Sandbox">
       <UniqueIdentifier>{3F7B6B1D-2B33-AD6A-943A-86C68011485B}</UniqueIdentifier>
     </Filter>
@@ -26,12 +17,6 @@
   <ItemGroup>
     <None Include="..\..\BuildMachineTest\premake5.lua">
       <Filter>..\BuildMachineTest</Filter>
-    </None>
-    <None Include="..\..\Renderer\ThirdParty\GLFW\premake5.lua">
-      <Filter>..\Renderer\ThirdParty\GLFW</Filter>
-    </None>
-    <None Include="..\..\Renderer\ThirdParty\Glad\premake5.lua">
-      <Filter>..\Renderer\ThirdParty\Glad</Filter>
     </None>
     <None Include="..\..\Renderer\premake5.lua">
       <Filter>..\Renderer</Filter>

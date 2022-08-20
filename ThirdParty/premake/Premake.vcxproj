@@ -78,8 +78,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <None Include="..\..\BuildMachineTest\premake5.lua" />
-    <None Include="..\..\Renderer\ThirdParty\GLFW\premake5.lua" />
-    <None Include="..\..\Renderer\ThirdParty\Glad\premake5.lua" />
     <None Include="..\..\Renderer\premake5.lua" />
     <None Include="..\..\Sandbox\premake5.lua" />
     <None Include="..\..\premake5.lua" />

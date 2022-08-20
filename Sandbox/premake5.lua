@@ -3,7 +3,8 @@ project "Sandbox"
 	language "C++"
 	cppdialect "C++17"
 	staticruntime "on"
-
+	entrypoint "WinMainCRTStartup"
+		
 	targetdir ("%{wks.location}/Binaries/" .. outputdir .. "/%{prj.name}")
 	objdir ("%{wks.location}/Intermediate/" .. outputdir .. "/%{prj.name}")
 
@@ -20,10 +21,6 @@ project "Sandbox"
 	
 	includedirs
 	{
-		"%{IncludeDir.GLFW}",
-		"%{IncludeDir.Glad}",
-		"%{IncludeDir.glm}",
-		"%{IncludeDir.stb_image}",
 		"%{IncludeDir.Renderer}"
 	}
 	
@@ -32,14 +29,30 @@ project "Sandbox"
 		"%{wks.location}/Binaries/" .. outputdir .. "/Renderer/"
 	}
 	
+	newoption 
+	{
+		trigger     = "--width",
+		value 		= 800,
+		description = "Sets window width"
+	}
+	
+	newoption 
+	{
+		trigger     = "--height",
+		value 		= 600,
+		description = "Sets window height"
+	}
+	
+	newoption 
+	{
+		trigger     = "--warp",
+		value 		= false,
+		description = "Whether DX12 should use warp for older graphics cards"
+	}
+	
 	filter "system:windows"
 		systemversion "latest"
-		
-	filter "system:macosx"
-		systemversion "latest"
-
-	filter "system:linux"
-		systemversion "latest"
+		defines	{ "PLATFORM_WINDOWS" }
 		
 	filter "configurations:Debug"
 		defines "DEBUG"

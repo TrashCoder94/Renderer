@@ -78,8 +78,8 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Renderer\ThirdParty\GLFW\include;..\Renderer\ThirdParty\Glad\include;..\Renderer\ThirdParty\glm;..\Renderer\ThirdParty\stb_image;..\Renderer\Source;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>PLATFORM_WINDOWS;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\Renderer\Source;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <MinimalRebuild>false</MinimalRebuild>
@@ -90,21 +90,17 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>Renderer.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>..\Binaries\Debug-windows-x86_64\Renderer;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <EntryPointSymbol>WinMainCRTStartup</EntryPointSymbol>
       <AdditionalOptions>-IGNORE:4006 %(AdditionalOptions)</AdditionalOptions>
     </Link>
-    <PostBuildEvent>
-      <Command>IF EXIST $(SolutionDir)Renderer\ThirdParty\OpenGL\ (xcopy /Q /E /Y /I $(SolutionDir)Renderer\ThirdParty\OpenGL ..\Binaries\Debug-windows-x86_64\BuildMachineTest &gt; nul) ELSE (xcopy /Q /Y /I $(SolutionDir)Renderer\ThirdParty\OpenGL ..\Binaries\Debug-windows-x86_64\BuildMachineTest &gt; nul)</Command>
-      <Message>Copying OpenGL dll for Build Machine!</Message>
-    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Renderer\ThirdParty\GLFW\include;..\Renderer\ThirdParty\Glad\include;..\Renderer\ThirdParty\glm;..\Renderer\ThirdParty\stb_image;..\Renderer\Source;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>PLATFORM_WINDOWS;RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\Renderer\Source;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -118,21 +114,17 @@
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>Renderer.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>..\Binaries\Release-windows-x86_64\Renderer;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <EntryPointSymbol>WinMainCRTStartup</EntryPointSymbol>
       <AdditionalOptions>-IGNORE:4006 %(AdditionalOptions)</AdditionalOptions>
     </Link>
-    <PostBuildEvent>
-      <Command>IF EXIST $(SolutionDir)Renderer\ThirdParty\OpenGL\ (xcopy /Q /E /Y /I $(SolutionDir)Renderer\ThirdParty\OpenGL ..\Binaries\Release-windows-x86_64\BuildMachineTest &gt; nul) ELSE (xcopy /Q /Y /I $(SolutionDir)Renderer\ThirdParty\OpenGL ..\Binaries\Release-windows-x86_64\BuildMachineTest &gt; nul)</Command>
-      <Message>Copying OpenGL dll for Build Machine!</Message>
-    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Distribution|x64'">
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>DISTRIBUTION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Renderer\ThirdParty\GLFW\include;..\Renderer\ThirdParty\Glad\include;..\Renderer\ThirdParty\glm;..\Renderer\ThirdParty\stb_image;..\Renderer\Source;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>PLATFORM_WINDOWS;DISTRIBUTION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\Renderer\Source;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -146,14 +138,10 @@
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>Renderer.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>..\Binaries\Distribution-windows-x86_64\Renderer;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <EntryPointSymbol>WinMainCRTStartup</EntryPointSymbol>
       <AdditionalOptions>-IGNORE:4006 %(AdditionalOptions)</AdditionalOptions>
     </Link>
-    <PostBuildEvent>
-      <Command>IF EXIST $(SolutionDir)Renderer\ThirdParty\OpenGL\ (xcopy /Q /E /Y /I $(SolutionDir)Renderer\ThirdParty\OpenGL ..\Binaries\Distribution-windows-x86_64\BuildMachineTest &gt; nul) ELSE (xcopy /Q /Y /I $(SolutionDir)Renderer\ThirdParty\OpenGL ..\Binaries\Distribution-windows-x86_64\BuildMachineTest &gt; nul)</Command>
-      <Message>Copying OpenGL dll for Build Machine!</Message>
-    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Source\main.cpp" />
