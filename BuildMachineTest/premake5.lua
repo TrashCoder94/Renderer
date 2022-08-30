@@ -29,27 +29,6 @@ project "BuildMachineTest"
 		"%{wks.location}/Binaries/" .. outputdir .. "/Renderer/"
 	}
 	
-	newoption 
-	{
-		trigger     = "--width",
-		value 		= 800,
-		description = "Sets window width"
-	}
-	
-	newoption 
-	{
-		trigger     = "--height",
-		value 		= 600,
-		description = "Sets window height"
-	}
-	
-	newoption 
-	{
-		trigger     = "--warp",
-		value 		= false,
-		description = "Whether DX12 should use warp for older graphics cards"
-	}
-	
 	filter "system:windows"
 		systemversion "latest"
 		defines	{ "PLATFORM_WINDOWS" }

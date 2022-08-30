@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="DX12Lib">
+      <UniqueIdentifier>{DB241147-4704-90E2-501C-1BB9BC7AF643}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DX12Lib\inc">
+      <UniqueIdentifier>{64AD9902-D062-12F8-5957-0CCFC50B09FC}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tutorial1">
+      <UniqueIdentifier>{0A37A211-76A1-5688-BFDF-072E2B8934DD}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tutorial1\src">
+      <UniqueIdentifier>{216AB6F6-8D2A-322D-5665-7BAAC2E47609}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\DX12Lib\inc\d3dx12.h">
+      <Filter>DX12Lib\inc</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\Tutorial1\src\main.cpp">
+      <Filter>Tutorial1\src</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

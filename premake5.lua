@@ -3,7 +3,7 @@ include "./ThirdParty/premake/premake_customization/solution_items.lua"
 -- Visual Studio Solution
 workspace "Renderer"
 	architecture "x86_64"
-	startproject "Sandbox"
+	startproject "DX12Tutorial2"
 	
 	configurations
 	{
@@ -43,4 +43,9 @@ group "RendererLibrary"
 	include "BuildMachineTest"
 	include "Renderer"
 	include "Sandbox"
+group ""
+
+group "Tutorials"
+	include "Tutorial/DX12/DX12Tutorial1"
+	include "Tutorial/DX12/DX12Tutorial2"
 group ""
