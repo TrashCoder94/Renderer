@@ -25,6 +25,9 @@
     <Filter Include="..\Tutorial\DX12\DX12Tutorial2">
       <UniqueIdentifier>{2621F47E-1247-BEE5-FB8C-43B1E751E3B1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="..\Tutorial\DX12\DX12Tutorial3">
+      <UniqueIdentifier>{2721F47E-1347-BEE5-FC8C-43B1E851E3B1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\BuildMachineTest\premake5.lua">
@@ -41,6 +44,9 @@
     </None>
     <None Include="..\..\Tutorial\DX12\DX12Tutorial2\premake5.lua">
       <Filter>..\Tutorial\DX12\DX12Tutorial2</Filter>
+    </None>
+    <None Include="..\..\Tutorial\DX12\DX12Tutorial3\premake5.lua">
+      <Filter>..\Tutorial\DX12\DX12Tutorial3</Filter>
     </None>
     <None Include="..\..\premake5.lua">
       <Filter>..</Filter>

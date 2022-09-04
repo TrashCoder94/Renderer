@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="DX12Lib">
+      <UniqueIdentifier>{DB241147-4704-90E2-501C-1BB9BC7AF643}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DX12Lib\Resources">
+      <UniqueIdentifier>{0558BE13-716E-BCA9-BAE5-47CB263B8D31}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DX12Lib\Resources\Shaders">
+      <UniqueIdentifier>{DEB1E84D-4A74-1CD8-9324-AB64FF25F5B5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DX12Lib\inc">
+      <UniqueIdentifier>{64AD9902-D062-12F8-5957-0CCFC50B09FC}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DX12Lib\src">
+      <UniqueIdentifier>{72D89902-DE8D-12F8-6782-0CCFD33609FC}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DirectXTex">
+      <UniqueIdentifier>{A90EE592-95C6-26E0-FECD-FF3BEAA4C1D0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DirectXTex\DDSTextureLoader">
+      <UniqueIdentifier>{5B6A9DC2-C777-CBA8-505E-C793BC6A975F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DirectXTex\DirectXTex">
+      <UniqueIdentifier>{5C69C552-C8D5-804D-91C9-18ABFDF4A2B5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DirectXTex\WICTextureLoader">
+      <UniqueIdentifier>{C3C4F026-2FD2-1E0D-B8B8-1AF824C5EAC3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tutorial3">
+      <UniqueIdentifier>{0C37A211-78A1-5688-C1DF-072E2D8934DD}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tutorial3\inc">
+      <UniqueIdentifier>{1570DAF6-8130-562D-4A6B-9FAAB6EA9A09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tutorial3\shaders">
+      <UniqueIdentifier>{0540EAB3-7156-E849-BACD-736B2623B9D1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tutorial3\src">
+      <UniqueIdentifier>{239BDAF6-8F5B-562D-5896-9FAAC4159B09}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\DX12Lib\inc\Application.h">
+      <Filter>DX12Lib\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DX12Lib\inc\Buffer.h">
+      <Filter>DX12Lib\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DX12Lib\inc\ByteAddressBuffer.h">
+      <Filter>DX12Lib\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DX12Lib\inc\CommandList.h">
+      <Filter>DX12Lib\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DX12Lib\inc\CommandQueue.h">
+      <Filter>DX12Lib\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DX12Lib\inc\ConstantBuffer.h">
+      <Filter>DX12Lib\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DX12Lib\inc\DX12LibPCH.h">
+      <Filter>DX12Lib\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DX12Lib\inc\Defines.h">
+      <Filter>DX12Lib\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DX12Lib\inc\DescriptorAllocation.h">
+      <Filter>DX12Lib\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DX12Lib\inc\DescriptorAllocator.h">
+      <Filter>DX12Lib\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DX12Lib\inc\DescriptorAllocatorPage.h">
+      <Filter>DX12Lib\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DX12Lib\inc\DynamicDescriptorHeap.h">
+      <Filter>DX12Lib\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DX12Lib\inc\Events.h">
+      <Filter>DX12Lib\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DX12Lib\inc\GUI.h">
+      <Filter>DX12Lib\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DX12Lib\inc\Game.h">
+      <Filter>DX12Lib\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DX12Lib\inc\GenerateMipsPSO.h">
+      <Filter>DX12Lib\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DX12Lib\inc\Helpers.h">
+      <Filter>DX12Lib\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DX12Lib\inc\HighResolutionClock.h">
+      <Filter>DX12Lib\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DX12Lib\inc\IndexBuffer.h">
+      <Filter>DX12Lib\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DX12Lib\inc\KeyCodes.h">
+      <Filter>DX12Lib\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DX12Lib\inc\Mesh.h">
+      <Filter>DX12Lib\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DX12Lib\inc\PanoToCubemapPSO.h">
+      <Filter>DX12Lib\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DX12Lib\inc\RenderTarget.h">
+      <Filter>DX12Lib\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DX12Lib\inc\Resource.h">
+      <Filter>DX12Lib\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DX12Lib\inc\ResourceStateTracker.h">
+      <Filter>DX12Lib\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DX12Lib\inc\RootSignature.h">
+      <Filter>DX12Lib\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DX12Lib\inc\StructuredBuffer.h">
+      <Filter>DX12Lib\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DX12Lib\inc\Texture.h">
+      <Filter>DX12Lib\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DX12Lib\inc\TextureUsage.h">
+      <Filter>DX12Lib\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DX12Lib\inc\ThreadSafeQueue.h">
+      <Filter>DX12Lib\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DX12Lib\inc\UploadBuffer.h">
+      <Filter>DX12Lib\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DX12Lib\inc\VertexBuffer.h">
+      <Filter>DX12Lib\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DX12Lib\inc\Window.h">
+      <Filter>DX12Lib\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DX12Lib\inc\d3dx12.h">
+      <Filter>DX12Lib\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DX12Lib\inc\imconfig.h">
+      <Filter>DX12Lib\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DX12Lib\inc\imgui.h">
+      <Filter>DX12Lib\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DX12Lib\inc\imgui_impl_win32.h">
+      <Filter>DX12Lib\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DX12Lib\resource.h">
+      <Filter>DX12Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DX12Lib\src\imgui_internal.h">
+      <Filter>DX12Lib\src</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DX12Lib\src\imstb_rectpack.h">
+      <Filter>DX12Lib\src</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DX12Lib\src\imstb_textedit.h">
+      <Filter>DX12Lib\src</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DX12Lib\src\imstb_truetype.h">
+      <Filter>DX12Lib\src</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DirectXTex\DDSTextureLoader\DDSTextureLoader.h">
+      <Filter>DirectXTex\DDSTextureLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DirectXTex\DDSTextureLoader\DDSTextureLoader12.h">
+      <Filter>DirectXTex\DDSTextureLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DirectXTex\DirectXTex\BC.h">
+      <Filter>DirectXTex\DirectXTex</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DirectXTex\DirectXTex\BCDirectCompute.h">
+      <Filter>DirectXTex\DirectXTex</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DirectXTex\DirectXTex\DDS.h">
+      <Filter>DirectXTex\DirectXTex</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DirectXTex\DirectXTex\DirectXTex.h">
+      <Filter>DirectXTex\DirectXTex</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DirectXTex\DirectXTex\DirectXTexP.h">
+      <Filter>DirectXTex\DirectXTex</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DirectXTex\DirectXTex\Filters.h">
+      <Filter>DirectXTex\DirectXTex</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DirectXTex\DirectXTex\d3dx12.h">
+      <Filter>DirectXTex\DirectXTex</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DirectXTex\DirectXTex\scoped.h">
+      <Filter>DirectXTex\DirectXTex</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DirectXTex\WICTextureLoader\WICTextureLoader.h">
+      <Filter>DirectXTex\WICTextureLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DirectXTex\WICTextureLoader\WICTextureLoader12.h">
+      <Filter>DirectXTex\WICTextureLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Tutorial3\inc\Camera.h">
+      <Filter>Tutorial3\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Tutorial3\inc\Light.h">
+      <Filter>Tutorial3\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Tutorial3\inc\Material.h">
+      <Filter>Tutorial3\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Tutorial3\inc\Tutorial3.h">
+      <Filter>Tutorial3\inc</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\DX12Lib\src\Application.cpp">
+      <Filter>DX12Lib\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DX12Lib\src\Buffer.cpp">
+      <Filter>DX12Lib\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DX12Lib\src\ByteAddressBuffer.cpp">
+      <Filter>DX12Lib\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DX12Lib\src\CommandList.cpp">
+      <Filter>DX12Lib\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DX12Lib\src\CommandQueue.cpp">
+      <Filter>DX12Lib\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DX12Lib\src\ConstantBuffer.cpp">
+      <Filter>DX12Lib\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DX12Lib\src\DX12LibPCH.cpp">
+      <Filter>DX12Lib\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DX12Lib\src\DescriptorAllocation.cpp">
+      <Filter>DX12Lib\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DX12Lib\src\DescriptorAllocator.cpp">
+      <Filter>DX12Lib\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DX12Lib\src\DescriptorAllocatorPage.cpp">
+      <Filter>DX12Lib\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DX12Lib\src\DynamicDescriptorHeap.cpp">
+      <Filter>DX12Lib\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DX12Lib\src\GUI.cpp">
+      <Filter>DX12Lib\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DX12Lib\src\Game.cpp">
+      <Filter>DX12Lib\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DX12Lib\src\GenerateMipsPSO.cpp">
+      <Filter>DX12Lib\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DX12Lib\src\HighResolutionClock.cpp">
+      <Filter>DX12Lib\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DX12Lib\src\IndexBuffer.cpp">
+      <Filter>DX12Lib\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DX12Lib\src\Mesh.cpp">
+      <Filter>DX12Lib\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DX12Lib\src\PanoToCubemapPSO.cpp">
+      <Filter>DX12Lib\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DX12Lib\src\RenderTarget.cpp">
+      <Filter>DX12Lib\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DX12Lib\src\Resource.cpp">
+      <Filter>DX12Lib\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DX12Lib\src\ResourceStateTracker.cpp">
+      <Filter>DX12Lib\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DX12Lib\src\RootSignature.cpp">
+      <Filter>DX12Lib\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DX12Lib\src\StructuredBuffer.cpp">
+      <Filter>DX12Lib\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DX12Lib\src\Texture.cpp">
+      <Filter>DX12Lib\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DX12Lib\src\UploadBuffer.cpp">
+      <Filter>DX12Lib\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DX12Lib\src\VertexBuffer.cpp">
+      <Filter>DX12Lib\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DX12Lib\src\Window.cpp">
+      <Filter>DX12Lib\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DX12Lib\src\imgui.cpp">
+      <Filter>DX12Lib\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DX12Lib\src\imgui_demo.cpp">
+      <Filter>DX12Lib\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DX12Lib\src\imgui_draw.cpp">
+      <Filter>DX12Lib\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DX12Lib\src\imgui_impl_win32.cpp">
+      <Filter>DX12Lib\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DX12Lib\src\imgui_widgets.cpp">
+      <Filter>DX12Lib\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DirectXTex\DDSTextureLoader\DDSTextureLoader.cpp">
+      <Filter>DirectXTex\DDSTextureLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DirectXTex\DDSTextureLoader\DDSTextureLoader12.cpp">
+      <Filter>DirectXTex\DDSTextureLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DirectXTex\DirectXTex\BC.cpp">
+      <Filter>DirectXTex\DirectXTex</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DirectXTex\DirectXTex\BC4BC5.cpp">
+      <Filter>DirectXTex\DirectXTex</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DirectXTex\DirectXTex\BC6HBC7.cpp">
+      <Filter>DirectXTex\DirectXTex</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DirectXTex\DirectXTex\BCDirectCompute.cpp">
+      <Filter>DirectXTex\DirectXTex</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DirectXTex\DirectXTex\DirectXTexCompress.cpp">
+      <Filter>DirectXTex\DirectXTex</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DirectXTex\DirectXTex\DirectXTexCompressGPU.cpp">
+      <Filter>DirectXTex\DirectXTex</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DirectXTex\DirectXTex\DirectXTexConvert.cpp">
+      <Filter>DirectXTex\DirectXTex</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DirectXTex\DirectXTex\DirectXTexD3D11.cpp">
+      <Filter>DirectXTex\DirectXTex</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DirectXTex\DirectXTex\DirectXTexD3D12.cpp">
+      <Filter>DirectXTex\DirectXTex</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DirectXTex\DirectXTex\DirectXTexDDS.cpp">
+      <Filter>DirectXTex\DirectXTex</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DirectXTex\DirectXTex\DirectXTexFlipRotate.cpp">
+      <Filter>DirectXTex\DirectXTex</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DirectXTex\DirectXTex\DirectXTexHDR.cpp">
+      <Filter>DirectXTex\DirectXTex</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DirectXTex\DirectXTex\DirectXTexImage.cpp">
+      <Filter>DirectXTex\DirectXTex</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DirectXTex\DirectXTex\DirectXTexMipmaps.cpp">
+      <Filter>DirectXTex\DirectXTex</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DirectXTex\DirectXTex\DirectXTexMisc.cpp">
+      <Filter>DirectXTex\DirectXTex</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DirectXTex\DirectXTex\DirectXTexNormalMaps.cpp">
+      <Filter>DirectXTex\DirectXTex</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DirectXTex\DirectXTex\DirectXTexPMAlpha.cpp">
+      <Filter>DirectXTex\DirectXTex</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DirectXTex\DirectXTex\DirectXTexResize.cpp">
+      <Filter>DirectXTex\DirectXTex</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DirectXTex\DirectXTex\DirectXTexTGA.cpp">
+      <Filter>DirectXTex\DirectXTex</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DirectXTex\DirectXTex\DirectXTexUtil.cpp">
+      <Filter>DirectXTex\DirectXTex</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DirectXTex\DirectXTex\DirectXTexWIC.cpp">
+      <Filter>DirectXTex\DirectXTex</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DirectXTex\WICTextureLoader\WICTextureLoader.cpp">
+      <Filter>DirectXTex\WICTextureLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DirectXTex\WICTextureLoader\WICTextureLoader12.cpp">
+      <Filter>DirectXTex\WICTextureLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Tutorial3\src\Camera.cpp">
+      <Filter>Tutorial3\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Tutorial3\src\Light.cpp">
+      <Filter>Tutorial3\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Tutorial3\src\Material.cpp">
+      <Filter>Tutorial3\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Tutorial3\src\Tutorial3.cpp">
+      <Filter>Tutorial3\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Tutorial3\src\main.cpp">
+      <Filter>Tutorial3\src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="Source\DX12Lib\Resources\Shaders\GenerateMips-cs.hlsl">
+      <Filter>DX12Lib\Resources\Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="Source\DX12Lib\Resources\Shaders\ImGUI-ps.hlsl">
+      <Filter>DX12Lib\Resources\Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="Source\DX12Lib\Resources\Shaders\ImGUI-vs.hlsl">
+      <Filter>DX12Lib\Resources\Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="Source\DX12Lib\Resources\Shaders\PanoToCubemap-cs.hlsl">
+      <Filter>DX12Lib\Resources\Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="Source\Tutorial3\shaders\PixelShader-ps.hlsl">
+      <Filter>Tutorial3\shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="Source\Tutorial3\shaders\VertexShader-vs.hlsl">
+      <Filter>Tutorial3\shaders</Filter>
+    </FxCompile>
+  </ItemGroup>
+</Project>

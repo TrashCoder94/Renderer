@@ -412,19 +412,28 @@ void Tutorial2::OnKeyPressed(KeyEventArgs& e)
 
     switch (e.Key)
     {
-    case KeyCode::Escape:
-        Application::Get().Quit(0);
-        break;
-    case KeyCode::Enter:
-        if (e.Alt)
+        case KeyCode::Escape:
         {
-    case KeyCode::F11:
-        m_pWindow->ToggleFullscreen();
-        break;
+            Application::Get().Quit(0);
+            break;
         }
-    case KeyCode::V:
-        m_pWindow->ToggleVSync();
-        break;
+        case KeyCode::Enter:
+        {
+            if (e.Alt)
+            {
+                case KeyCode::F11:
+                {
+                    m_pWindow->ToggleFullscreen();
+                    break;
+                }
+            }
+            break;
+        }
+        case KeyCode::V:
+        {
+            m_pWindow->ToggleVSync();
+            break;
+        }
     }
 }
 
