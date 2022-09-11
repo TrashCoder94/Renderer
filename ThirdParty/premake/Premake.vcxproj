@@ -83,6 +83,7 @@
     <None Include="..\..\Tutorial\DX12\DX12Tutorial1\premake5.lua" />
     <None Include="..\..\Tutorial\DX12\DX12Tutorial2\premake5.lua" />
     <None Include="..\..\Tutorial\DX12\DX12Tutorial3\premake5.lua" />
+    <None Include="..\..\Tutorial\DX12\DX12Tutorial4\premake5.lua" />
     <None Include="..\..\premake5.lua" />
     <None Include="premake5.lua" />
   </ItemGroup>

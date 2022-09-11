@@ -1,0 +1,338 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Distribution|x64">
+      <Configuration>Distribution</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{0CAB36C6-786B-B2FC-41A6-FB79AD25F7D8}</ProjectGuid>
+    <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>DX12Tutorial4</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Distribution|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Distribution|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>..\..\..\Binaries\Debug-windows-x86_64\DX12Tutorial4\</OutDir>
+    <IntDir>..\..\..\Intermediate\Debug-windows-x86_64\DX12Tutorial4\</IntDir>
+    <TargetName>DX12Tutorial4</TargetName>
+    <TargetExt>.exe</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>..\..\..\Binaries\Release-windows-x86_64\DX12Tutorial4\</OutDir>
+    <IntDir>..\..\..\Intermediate\Release-windows-x86_64\DX12Tutorial4\</IntDir>
+    <TargetName>DX12Tutorial4</TargetName>
+    <TargetExt>.exe</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Distribution|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>..\..\..\Binaries\Distribution-windows-x86_64\DX12Tutorial4\</OutDir>
+    <IntDir>..\..\..\Intermediate\Distribution-windows-x86_64\DX12Tutorial4\</IntDir>
+    <TargetName>DX12Tutorial4</TargetName>
+    <TargetExt>.exe</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;PLATFORM_WINDOWS;WIN32_LEAN_AND_MEAN;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>Source;Source\DirectXTex\DDSTextureLoader;Source\DirectXTex\DirectXTex;Source\DirectXTex\WICTextureLoader;Source\DX12Lib\inc;Source\Tutorial4\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <MinimalRebuild>false</MinimalRebuild>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>dxguid.lib;dxgi.lib;d3d12.lib;d3dcompiler.lib;shlwapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <EntryPointSymbol>WinMainCRTStartup</EntryPointSymbol>
+      <AdditionalOptions>-IGNORE:4006 %(AdditionalOptions)</AdditionalOptions>
+    </Link>
+    <PreBuildEvent>
+      <Command>IF EXIST $(ProjectDir)Source\externals\ (xcopy /Q /E /Y /I $(ProjectDir)Source\externals ..\..\..\Binaries\Debug-windows-x86_64\DX12Tutorial4 &gt; nul) ELSE (xcopy /Q /Y /I $(ProjectDir)Source\externals ..\..\..\Binaries\Debug-windows-x86_64\DX12Tutorial4 &gt; nul)
+IF EXIST $(ProjectDir)Source\Assets\ (xcopy /Q /E /Y /I $(ProjectDir)Source\Assets ..\..\..\Binaries\Debug-windows-x86_64\DX12Tutorial4\Assets &gt; nul) ELSE (xcopy /Q /Y /I $(ProjectDir)Source\Assets ..\..\..\Binaries\Debug-windows-x86_64\DX12Tutorial4\Assets &gt; nul)</Command>
+      <Message>Copying Assets to binaries folder!</Message>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;PLATFORM_WINDOWS;WIN32_LEAN_AND_MEAN;RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>Source;Source\DirectXTex\DDSTextureLoader;Source\DirectXTex\DirectXTex;Source\DirectXTex\WICTextureLoader;Source\DX12Lib\inc;Source\Tutorial4\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>dxguid.lib;dxgi.lib;d3d12.lib;d3dcompiler.lib;shlwapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <EntryPointSymbol>WinMainCRTStartup</EntryPointSymbol>
+      <AdditionalOptions>-IGNORE:4006 %(AdditionalOptions)</AdditionalOptions>
+    </Link>
+    <PreBuildEvent>
+      <Command>IF EXIST $(ProjectDir)Source\externals\ (xcopy /Q /E /Y /I $(ProjectDir)Source\externals ..\..\..\Binaries\Release-windows-x86_64\DX12Tutorial4 &gt; nul) ELSE (xcopy /Q /Y /I $(ProjectDir)Source\externals ..\..\..\Binaries\Release-windows-x86_64\DX12Tutorial4 &gt; nul)
+IF EXIST $(ProjectDir)Source\Assets\ (xcopy /Q /E /Y /I $(ProjectDir)Source\Assets ..\..\..\Binaries\Release-windows-x86_64\DX12Tutorial4\Assets &gt; nul) ELSE (xcopy /Q /Y /I $(ProjectDir)Source\Assets ..\..\..\Binaries\Release-windows-x86_64\DX12Tutorial4\Assets &gt; nul)</Command>
+      <Message>Copying Assets to binaries folder!</Message>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Distribution|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;PLATFORM_WINDOWS;WIN32_LEAN_AND_MEAN;DISTRIBUTION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>Source;Source\DirectXTex\DDSTextureLoader;Source\DirectXTex\DirectXTex;Source\DirectXTex\WICTextureLoader;Source\DX12Lib\inc;Source\Tutorial4\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>dxguid.lib;dxgi.lib;d3d12.lib;d3dcompiler.lib;shlwapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <EntryPointSymbol>WinMainCRTStartup</EntryPointSymbol>
+      <AdditionalOptions>-IGNORE:4006 %(AdditionalOptions)</AdditionalOptions>
+    </Link>
+    <PreBuildEvent>
+      <Command>IF EXIST $(ProjectDir)Source\externals\ (xcopy /Q /E /Y /I $(ProjectDir)Source\externals ..\..\..\Binaries\Distribution-windows-x86_64\DX12Tutorial4 &gt; nul) ELSE (xcopy /Q /Y /I $(ProjectDir)Source\externals ..\..\..\Binaries\Distribution-windows-x86_64\DX12Tutorial4 &gt; nul)
+IF EXIST $(ProjectDir)Source\Assets\ (xcopy /Q /E /Y /I $(ProjectDir)Source\Assets ..\..\..\Binaries\Distribution-windows-x86_64\DX12Tutorial4\Assets &gt; nul) ELSE (xcopy /Q /Y /I $(ProjectDir)Source\Assets ..\..\..\Binaries\Distribution-windows-x86_64\DX12Tutorial4\Assets &gt; nul)</Command>
+      <Message>Copying Assets to binaries folder!</Message>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\DX12Lib\inc\Application.h" />
+    <ClInclude Include="Source\DX12Lib\inc\Buffer.h" />
+    <ClInclude Include="Source\DX12Lib\inc\ByteAddressBuffer.h" />
+    <ClInclude Include="Source\DX12Lib\inc\CommandList.h" />
+    <ClInclude Include="Source\DX12Lib\inc\CommandQueue.h" />
+    <ClInclude Include="Source\DX12Lib\inc\ConstantBuffer.h" />
+    <ClInclude Include="Source\DX12Lib\inc\DX12LibPCH.h" />
+    <ClInclude Include="Source\DX12Lib\inc\Defines.h" />
+    <ClInclude Include="Source\DX12Lib\inc\DescriptorAllocation.h" />
+    <ClInclude Include="Source\DX12Lib\inc\DescriptorAllocator.h" />
+    <ClInclude Include="Source\DX12Lib\inc\DescriptorAllocatorPage.h" />
+    <ClInclude Include="Source\DX12Lib\inc\DynamicDescriptorHeap.h" />
+    <ClInclude Include="Source\DX12Lib\inc\Events.h" />
+    <ClInclude Include="Source\DX12Lib\inc\GUI.h" />
+    <ClInclude Include="Source\DX12Lib\inc\Game.h" />
+    <ClInclude Include="Source\DX12Lib\inc\GenerateMipsPSO.h" />
+    <ClInclude Include="Source\DX12Lib\inc\Helpers.h" />
+    <ClInclude Include="Source\DX12Lib\inc\HighResolutionClock.h" />
+    <ClInclude Include="Source\DX12Lib\inc\IndexBuffer.h" />
+    <ClInclude Include="Source\DX12Lib\inc\KeyCodes.h" />
+    <ClInclude Include="Source\DX12Lib\inc\Mesh.h" />
+    <ClInclude Include="Source\DX12Lib\inc\PanoToCubemapPSO.h" />
+    <ClInclude Include="Source\DX12Lib\inc\RenderTarget.h" />
+    <ClInclude Include="Source\DX12Lib\inc\Resource.h" />
+    <ClInclude Include="Source\DX12Lib\inc\ResourceStateTracker.h" />
+    <ClInclude Include="Source\DX12Lib\inc\RootSignature.h" />
+    <ClInclude Include="Source\DX12Lib\inc\StructuredBuffer.h" />
+    <ClInclude Include="Source\DX12Lib\inc\Texture.h" />
+    <ClInclude Include="Source\DX12Lib\inc\TextureUsage.h" />
+    <ClInclude Include="Source\DX12Lib\inc\ThreadSafeQueue.h" />
+    <ClInclude Include="Source\DX12Lib\inc\UploadBuffer.h" />
+    <ClInclude Include="Source\DX12Lib\inc\VertexBuffer.h" />
+    <ClInclude Include="Source\DX12Lib\inc\Window.h" />
+    <ClInclude Include="Source\DX12Lib\inc\d3dx12.h" />
+    <ClInclude Include="Source\DX12Lib\inc\imconfig.h" />
+    <ClInclude Include="Source\DX12Lib\inc\imgui.h" />
+    <ClInclude Include="Source\DX12Lib\inc\imgui_impl_win32.h" />
+    <ClInclude Include="Source\DX12Lib\resource.h" />
+    <ClInclude Include="Source\DX12Lib\src\imgui_internal.h" />
+    <ClInclude Include="Source\DX12Lib\src\imstb_rectpack.h" />
+    <ClInclude Include="Source\DX12Lib\src\imstb_textedit.h" />
+    <ClInclude Include="Source\DX12Lib\src\imstb_truetype.h" />
+    <ClInclude Include="Source\DirectXTex\DDSTextureLoader\DDSTextureLoader.h" />
+    <ClInclude Include="Source\DirectXTex\DDSTextureLoader\DDSTextureLoader12.h" />
+    <ClInclude Include="Source\DirectXTex\DirectXTex\BC.h" />
+    <ClInclude Include="Source\DirectXTex\DirectXTex\BCDirectCompute.h" />
+    <ClInclude Include="Source\DirectXTex\DirectXTex\DDS.h" />
+    <ClInclude Include="Source\DirectXTex\DirectXTex\DirectXTex.h" />
+    <ClInclude Include="Source\DirectXTex\DirectXTex\DirectXTexP.h" />
+    <ClInclude Include="Source\DirectXTex\DirectXTex\Filters.h" />
+    <ClInclude Include="Source\DirectXTex\DirectXTex\d3dx12.h" />
+    <ClInclude Include="Source\DirectXTex\DirectXTex\scoped.h" />
+    <ClInclude Include="Source\DirectXTex\WICTextureLoader\WICTextureLoader.h" />
+    <ClInclude Include="Source\DirectXTex\WICTextureLoader\WICTextureLoader12.h" />
+    <ClInclude Include="Source\Tutorial4\inc\Camera.h" />
+    <ClInclude Include="Source\Tutorial4\inc\Light.h" />
+    <ClInclude Include="Source\Tutorial4\inc\Material.h" />
+    <ClInclude Include="Source\Tutorial4\inc\Tutorial4.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\DX12Lib\src\Application.cpp" />
+    <ClCompile Include="Source\DX12Lib\src\Buffer.cpp" />
+    <ClCompile Include="Source\DX12Lib\src\ByteAddressBuffer.cpp" />
+    <ClCompile Include="Source\DX12Lib\src\CommandList.cpp" />
+    <ClCompile Include="Source\DX12Lib\src\CommandQueue.cpp" />
+    <ClCompile Include="Source\DX12Lib\src\ConstantBuffer.cpp" />
+    <ClCompile Include="Source\DX12Lib\src\DX12LibPCH.cpp" />
+    <ClCompile Include="Source\DX12Lib\src\DescriptorAllocation.cpp" />
+    <ClCompile Include="Source\DX12Lib\src\DescriptorAllocator.cpp" />
+    <ClCompile Include="Source\DX12Lib\src\DescriptorAllocatorPage.cpp" />
+    <ClCompile Include="Source\DX12Lib\src\DynamicDescriptorHeap.cpp" />
+    <ClCompile Include="Source\DX12Lib\src\GUI.cpp" />
+    <ClCompile Include="Source\DX12Lib\src\Game.cpp" />
+    <ClCompile Include="Source\DX12Lib\src\GenerateMipsPSO.cpp" />
+    <ClCompile Include="Source\DX12Lib\src\HighResolutionClock.cpp" />
+    <ClCompile Include="Source\DX12Lib\src\IndexBuffer.cpp" />
+    <ClCompile Include="Source\DX12Lib\src\Mesh.cpp" />
+    <ClCompile Include="Source\DX12Lib\src\PanoToCubemapPSO.cpp" />
+    <ClCompile Include="Source\DX12Lib\src\RenderTarget.cpp" />
+    <ClCompile Include="Source\DX12Lib\src\Resource.cpp" />
+    <ClCompile Include="Source\DX12Lib\src\ResourceStateTracker.cpp" />
+    <ClCompile Include="Source\DX12Lib\src\RootSignature.cpp" />
+    <ClCompile Include="Source\DX12Lib\src\StructuredBuffer.cpp" />
+    <ClCompile Include="Source\DX12Lib\src\Texture.cpp" />
+    <ClCompile Include="Source\DX12Lib\src\UploadBuffer.cpp" />
+    <ClCompile Include="Source\DX12Lib\src\VertexBuffer.cpp" />
+    <ClCompile Include="Source\DX12Lib\src\Window.cpp" />
+    <ClCompile Include="Source\DX12Lib\src\imgui.cpp" />
+    <ClCompile Include="Source\DX12Lib\src\imgui_demo.cpp" />
+    <ClCompile Include="Source\DX12Lib\src\imgui_draw.cpp" />
+    <ClCompile Include="Source\DX12Lib\src\imgui_impl_win32.cpp" />
+    <ClCompile Include="Source\DX12Lib\src\imgui_widgets.cpp" />
+    <ClCompile Include="Source\DirectXTex\DDSTextureLoader\DDSTextureLoader.cpp" />
+    <ClCompile Include="Source\DirectXTex\DDSTextureLoader\DDSTextureLoader12.cpp" />
+    <ClCompile Include="Source\DirectXTex\DirectXTex\BC.cpp" />
+    <ClCompile Include="Source\DirectXTex\DirectXTex\BC4BC5.cpp" />
+    <ClCompile Include="Source\DirectXTex\DirectXTex\BC6HBC7.cpp" />
+    <ClCompile Include="Source\DirectXTex\DirectXTex\BCDirectCompute.cpp" />
+    <ClCompile Include="Source\DirectXTex\DirectXTex\DirectXTexCompress.cpp" />
+    <ClCompile Include="Source\DirectXTex\DirectXTex\DirectXTexCompressGPU.cpp" />
+    <ClCompile Include="Source\DirectXTex\DirectXTex\DirectXTexConvert.cpp" />
+    <ClCompile Include="Source\DirectXTex\DirectXTex\DirectXTexD3D11.cpp" />
+    <ClCompile Include="Source\DirectXTex\DirectXTex\DirectXTexD3D12.cpp" />
+    <ClCompile Include="Source\DirectXTex\DirectXTex\DirectXTexDDS.cpp" />
+    <ClCompile Include="Source\DirectXTex\DirectXTex\DirectXTexFlipRotate.cpp" />
+    <ClCompile Include="Source\DirectXTex\DirectXTex\DirectXTexHDR.cpp" />
+    <ClCompile Include="Source\DirectXTex\DirectXTex\DirectXTexImage.cpp" />
+    <ClCompile Include="Source\DirectXTex\DirectXTex\DirectXTexMipmaps.cpp" />
+    <ClCompile Include="Source\DirectXTex\DirectXTex\DirectXTexMisc.cpp" />
+    <ClCompile Include="Source\DirectXTex\DirectXTex\DirectXTexNormalMaps.cpp" />
+    <ClCompile Include="Source\DirectXTex\DirectXTex\DirectXTexPMAlpha.cpp" />
+    <ClCompile Include="Source\DirectXTex\DirectXTex\DirectXTexResize.cpp" />
+    <ClCompile Include="Source\DirectXTex\DirectXTex\DirectXTexTGA.cpp" />
+    <ClCompile Include="Source\DirectXTex\DirectXTex\DirectXTexUtil.cpp" />
+    <ClCompile Include="Source\DirectXTex\DirectXTex\DirectXTexWIC.cpp" />
+    <ClCompile Include="Source\DirectXTex\WICTextureLoader\WICTextureLoader.cpp" />
+    <ClCompile Include="Source\DirectXTex\WICTextureLoader\WICTextureLoader12.cpp" />
+    <ClCompile Include="Source\Tutorial4\src\Camera.cpp" />
+    <ClCompile Include="Source\Tutorial4\src\Light.cpp" />
+    <ClCompile Include="Source\Tutorial4\src\Material.cpp" />
+    <ClCompile Include="Source\Tutorial4\src\Tutorial4.cpp" />
+    <ClCompile Include="Source\Tutorial4\src\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="Source\DX12Lib\Resources\Shaders\GenerateMips-cs.hlsl">
+      <ShaderType>Compute</ShaderType>
+      <ShaderModel>6.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="Source\DX12Lib\Resources\Shaders\ImGUI-ps.hlsl">
+      <ShaderType>Pixel</ShaderType>
+      <ShaderModel>6.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="Source\DX12Lib\Resources\Shaders\ImGUI-vs.hlsl">
+      <ShaderType>Vertex</ShaderType>
+      <ShaderModel>6.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="Source\DX12Lib\Resources\Shaders\PanoToCubemap-cs.hlsl">
+      <ShaderType>Compute</ShaderType>
+      <ShaderModel>6.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="Source\Tutorial4\shaders\HDR-ps.hlsl">
+      <ShaderType>Pixel</ShaderType>
+      <ShaderModel>6.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="Source\Tutorial4\shaders\HDR-vs.hlsl">
+      <ShaderType>Vertex</ShaderType>
+      <ShaderModel>6.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="Source\Tutorial4\shaders\HDRtoSDR-ps.hlsl">
+      <ShaderType>Pixel</ShaderType>
+      <ShaderModel>6.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="Source\Tutorial4\shaders\HDRtoSDR-vs.hlsl">
+      <ShaderType>Vertex</ShaderType>
+      <ShaderModel>6.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="Source\Tutorial4\shaders\PixelShader-ps.hlsl">
+      <ShaderType>Pixel</ShaderType>
+      <ShaderModel>6.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="Source\Tutorial4\shaders\Skybox-ps.hlsl">
+      <ShaderType>Pixel</ShaderType>
+      <ShaderModel>6.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="Source\Tutorial4\shaders\Skybox-vs.hlsl">
+      <ShaderType>Vertex</ShaderType>
+      <ShaderModel>6.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="Source\Tutorial4\shaders\VertexShader-vs.hlsl">
+      <ShaderType>Vertex</ShaderType>
+      <ShaderModel>6.0</ShaderModel>
+    </FxCompile>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
